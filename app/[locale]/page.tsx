@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import dynamic from 'next/dynamic';
-import { Hero } from '@/components/Hero';
-import { IconMarquee } from '@/components/IconMarquee';
+import { Hero } from '@/components/home/Hero';
+import { IconMarquee } from '@/components/home/IconMarquee';
 import { InnovationSection } from '@/components/home/InnovationSection';
 import { PhilosophySection } from '@/components/home/PhilosophySection';
 import { ArchitectureSection } from '@/components/home/ArchitectureSection';

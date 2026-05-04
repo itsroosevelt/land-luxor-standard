@@ -82,12 +82,12 @@ The single Anchor program (`programs/excelsior/`) is deployed at `9d7SeR8Njzh32p
 - **Deployment**: Vercel (CDN global, auto-scaling, preview deployments)
 - **i18n**: `next-intl` with 8 locales (en, es, fr, pt, de, zh, ja, ru) — translation files in `messages/`. The `[locale]` dynamic segment wraps all routes
 - **Backend**: Firebase/GCP (Firestore for data, Cloud Functions for serverless logic)
-- **Key components**: `Hero.tsx`, `LiveStats.tsx`, `TokenomicsChart.tsx`, `IconMarquee.tsx` at the root of `components/`
+- **Key components**: All 17 section components in `components/home/` (Hero, LiveStats, TokenomicsChart, IconMarquee, etc.)
 
 ### Deployment Details
 - **Frontend**: Vercel (https://luxorpage.vercel.app)
 - **Backend**: Firebase Console + GCP
-- **Documentation**: See `DEPLOYMENT_ARCHITECTURE.md`, `ENV_SETUP_GUIDE.md`, `VERCEL_DEPLOYMENT.md`, `FIREBASE_GCP_SETUP.md`
+- **Documentation**: See `docs/DEPLOYMENT_ARCHITECTURE.md`, `docs/ENV_SETUP_GUIDE.md`, `docs/VERCEL_DEPLOYMENT.md`, `docs/FIREBASE_GCP_SETUP.md`
 
 ## Protocol Key Addresses
 
