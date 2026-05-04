@@ -19,20 +19,15 @@ export const WalletContextProvider: FC<{ children: ReactNode }> = ({ children })
 
     const wallets = useMemo(
         () => [
-            /**
-             * Wallets that support the standard wallet adapter interface will be automatically
-             * detected as a result of the Mobile Wallet Adapter Protocol
-             * (https://github.com/solana-mobile/mobile-wallet-adapter-protocol-spec)
-             */
             new PhantomWalletAdapter(),
             new SolflareWalletAdapter(),
         ],
-        [network]
+        []
     );
 
     return (
         <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect>
+            <WalletProvider wallets={wallets} autoConnect={false} onError={(error) => console.error('Wallet error:', error)}>
                 <WalletModalProvider>{children}</WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>

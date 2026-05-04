@@ -17,12 +17,16 @@ export function BlinkComponent() {
 
   const handleConnect = async () => {
     try {
+      setError(null);
       const phantomWallet = wallets.find(w => w.adapter.name === 'Phantom');
       if (phantomWallet) {
-        select(phantomWallet.adapter.name);
+        await select(phantomWallet.adapter.name);
+      } else {
+        setError('Phantom wallet not found. Please install Phantom extension.');
       }
     } catch (err) {
-      setError('Failed to connect wallet');
+      const errorMsg = err instanceof Error ? err.message : 'Failed to connect wallet';
+      setError(errorMsg);
       console.error('Connect error:', err);
     }
   };
