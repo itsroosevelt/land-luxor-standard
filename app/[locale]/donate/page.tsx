@@ -10,10 +10,10 @@ export default async function DonatePage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t('title', 'Support Luxor')}
+            {t('title')}
           </h1>
           <p className="text-white/60 text-lg">
-            {t('description', 'Contribute SOL to the Luxor Treasury and help us build the future of the Solana ecosystem.')}
+            {t('description')}
           </p>
         </div>
 
