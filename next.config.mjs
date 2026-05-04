@@ -8,16 +8,15 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'firebasestorage.googleapis.com',
+                hostname: '**.githubusercontent.com',
             },
             {
                 protocol: 'https',
-                hostname: 'storage.googleapis.com',
+                hostname: '**.cloudinary.com',
             },
         ],
         formats: ['image/avif', 'image/webp'],
     },
-    output: 'standalone',
     compress: true,
     async headers() {
         return [

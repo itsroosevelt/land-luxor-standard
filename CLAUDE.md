@@ -76,12 +76,18 @@ The single Anchor program (`programs/excelsior/`) is deployed at `9d7SeR8Njzh32p
 - **Multi-environment**: `lib/environments.ts` defines `devnet` / `mainnet` / `testnet` configs with program IDs, mint addresses, and multisig addresses. Default is `devnet`
 - **Route groups**: `(auth)/login` for sign-in; `(dashboard)/` for protected pages; `(dashboard)/modules/[id]` for per-module views
 
-## Landing Page Architecture
+## Landing Page Architecture (luxorpage)
 
-- **Framework**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4
-- **i18n**: `next-intl` with 8 locales (en, es, fr, pt, de, zh, ja, ru) — translation files in `messages/`. The `[locale]` dynamic segment wraps all routes; middleware in `middleware.ts` handles routing
-- **Backend**: Firebase (Firestore for data, Analytics for tracking) — initialized in `lib/firebase.ts` and `lib/firebase-admin.ts`
+- **Framework**: Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS v4
+- **Deployment**: Vercel (CDN global, auto-scaling, preview deployments)
+- **i18n**: `next-intl` with 8 locales (en, es, fr, pt, de, zh, ja, ru) — translation files in `messages/`. The `[locale]` dynamic segment wraps all routes
+- **Backend**: Firebase/GCP (Firestore for data, Cloud Functions for serverless logic)
 - **Key components**: `Hero.tsx`, `LiveStats.tsx`, `TokenomicsChart.tsx`, `IconMarquee.tsx` at the root of `components/`
+
+### Deployment Details
+- **Frontend**: Vercel (https://luxorpage.vercel.app)
+- **Backend**: Firebase Console + GCP
+- **Documentation**: See `DEPLOYMENT_ARCHITECTURE.md`, `ENV_SETUP_GUIDE.md`, `VERCEL_DEPLOYMENT.md`, `FIREBASE_GCP_SETUP.md`
 
 ## Protocol Key Addresses
 
