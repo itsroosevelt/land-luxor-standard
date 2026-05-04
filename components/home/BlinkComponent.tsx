@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Connection, PublicKey, SystemProgram, TransactionMessage, VersionedTransaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
+import { Copy, ExternalLink } from 'lucide-react';
 
 const TREASURY_WALLET = "FEARFtN9VueEFVDCahtoWGu1A8Xdsmr2et3iWqAVo6hg";
 const RPC_URL = "https://api.mainnet-beta.solana.com";
@@ -24,6 +25,13 @@ export function BlinkComponent() {
       setError('Failed to connect wallet');
       console.error('Connect error:', err);
     }
+  };
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(TREASURY_WALLET);
+    setError(null);
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 2000);
   };
 
   const amounts = [0.1, 0.5, 1.0];
@@ -162,10 +170,31 @@ export function BlinkComponent() {
             : `Donate ${selectedAmount} SOL`}
       </button>
 
-      {/* Info */}
-      <p className="text-white/40 text-xs text-center">
-        Treasury Address: {TREASURY_WALLET.slice(0, 8)}...{TREASURY_WALLET.slice(-8)}
-      </p>
+      {/* Treasury Address Info */}
+      <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+        <p className="text-white/60 text-xs font-medium mb-2">Treasury Address</p>
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-white text-sm font-mono break-all">{TREASURY_WALLET}</p>
+          <div className="flex gap-2 flex-shrink-0">
+            <button
+              onClick={handleCopyAddress}
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              title="Copy address"
+            >
+              <Copy size={16} className="text-white/60 hover:text-white" />
+            </button>
+            <a
+              href={`https://solscan.io/address/${TREASURY_WALLET}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              title="View on Solscan"
+            >
+              <ExternalLink size={16} className="text-white/60 hover:text-white" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
