@@ -1,12 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import { BlinkComponent } from '@/components/home/BlinkComponent';
+import { BlueParticles } from '@/components/home/BlueParticles';
 
 export default async function DonatePage() {
   const t = await getTranslations('Donate');
 
   return (
-    <div className="min-h-screen bg-black pt-32 pb-20">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-black pt-32 pb-20 overflow-hidden">
+      <BlueParticles />
+
+      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
