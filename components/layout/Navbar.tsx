@@ -261,14 +261,12 @@ export default function Navbar() {
                                         </div>
                                     </a>
 
-                                    <a
-                                        href="https://dial.to/?action=solana-action:https://www.byluxor.com/api/actions/donate"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        href="/donate"
                                         className="flex items-center bg-blue-600/20 border border-blue-500/30 rounded-full h-9 hover:bg-blue-600/40 hover:border-blue-500/50 transition-all px-4 text-xs font-bold text-blue-400 font-sans"
                                     >
                                         Donate
-                                    </a>
+                                    </Link>
 
 
                                     <div className="h-9 wallet-pill-container">
@@ -443,17 +441,19 @@ export default function Navbar() {
                                         {t('buy')} LXR
                                     </motion.a>
 
-                                    <motion.a
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.3 }}
-                                        href="https://dial.to/?action=solana-action:https://www.byluxor.com/api/actions/donate"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-full bg-white/5 border border-white/10 text-white rounded-full h-16 flex items-center justify-center font-bold text-lg active:scale-95 transition-all"
+                                    <Link
+                                        href="/donate"
+                                        onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Donate
-                                    </motion.a>
+                                        <motion.button
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ delay: 0.3 }}
+                                            className="w-full bg-white/5 border border-white/10 text-white rounded-full h-16 flex items-center justify-center font-bold text-lg active:scale-95 transition-all"
+                                        >
+                                            Donate
+                                        </motion.button>
+                                    </Link>
                                 </div>
 
                                 {/* Socials & Region */}

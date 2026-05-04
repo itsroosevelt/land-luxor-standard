@@ -1,0 +1,153 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Connection, PublicKey, SystemProgram, TransactionMessage, VersionedTransaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { useWallet } from '@solana/wallet-adapter-react';
+
+const TREASURY_WALLET = "FEARFtN9VueEFVDCahtoWGu1A8Xdsmr2et3iWqAVo6hg";
+const RPC_URL = "https://api.mainnet-beta.solana.com";
+
+export function BlinkComponent() {
+  const { publicKey, signTransaction } = useWallet();
+  const [selectedAmount, setSelectedAmount] = useState<number>(0.1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const amounts = [0.1, 0.5, 1.0];
+
+  const handleTransaction = async (amount: number) => {
+    if (!publicKey || !signTransaction) {
+      setError("Please connect your wallet first");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      const connection = new Connection(RPC_URL);
+
+      // Create transfer instruction
+      const instruction = SystemProgram.transfer({
+        fromPubkey: publicKey,
+        toPubkey: new PublicKey(TREASURY_WALLET),
+        lamports: Math.floor(amount * LAMPORTS_PER_SOL),
+      });
+
+      // Get latest blockhash
+      const { blockhash } = await connection.getLatestBlockhash();
+
+      // Create transaction message
+      const message = new TransactionMessage({
+        payerKey: publicKey,
+        recentBlockhash: blockhash,
+        instructions: [instruction],
+      }).compileToV0Message();
+
+      // Create versioned transaction
+      const transaction = new VersionedTransaction(message);
+
+      // Sign transaction
+      const signedTx = await signTransaction(transaction);
+
+      // Send transaction
+      const signature = await connection.sendTransaction(signedTx);
+
+      // Wait for confirmation
+      await connection.confirmTransaction(signature);
+
+      setSuccess(true);
+      setSelectedAmount(0.1);
+
+      // Reset message after 5 seconds
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to process donation";
+      setError(errorMessage);
+      console.error("Donation error:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Presets */}
+      <div className="space-y-3">
+        <p className="text-white/60 text-sm font-medium">Select Amount</p>
+        <div className="grid grid-cols-3 gap-3">
+          {amounts.map((amount) => (
+            <button
+              key={amount}
+              onClick={() => setSelectedAmount(amount)}
+              disabled={isLoading}
+              className={`py-3 px-4 rounded-lg font-bold text-sm transition-all ${
+                selectedAmount === amount
+                  ? "bg-blue-600 text-white border border-blue-500"
+                  : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10"
+              } disabled:opacity-50`}
+            >
+              {amount} SOL
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Custom Amount */}
+      <div>
+        <label className="block text-white/60 text-sm font-medium mb-2">
+          Custom Amount (SOL)
+        </label>
+        <input
+          type="number"
+          min="0.01"
+          step="0.01"
+          value={selectedAmount}
+          onChange={(e) => setSelectedAmount(parseFloat(e.target.value) || 0)}
+          disabled={isLoading}
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50"
+          placeholder="Enter custom amount"
+        />
+      </div>
+
+      {/* Status Messages */}
+      {error && (
+        <div className="bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-3">
+          <p className="text-red-400 text-sm">{error}</p>
+        </div>
+      )}
+
+      {success && (
+        <div className="bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-3">
+          <p className="text-green-400 text-sm">✓ Thank you for supporting Luxor! 🚀</p>
+        </div>
+      )}
+
+      {/* Donate Button */}
+      <button
+        onClick={() => handleTransaction(selectedAmount)}
+        disabled={!publicKey || isLoading}
+        className={`w-full py-4 rounded-lg font-bold text-lg transition-all ${
+          publicKey && !isLoading
+            ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/50"
+            : "bg-white/10 text-white/50 cursor-not-allowed"
+        }`}
+      >
+        {!publicKey
+          ? "Connect Wallet"
+          : isLoading
+            ? "Processing..."
+            : `Donate ${selectedAmount} SOL`}
+      </button>
+
+      {/* Info */}
+      <p className="text-white/40 text-xs text-center">
+        Treasury Address: {TREASURY_WALLET.slice(0, 8)}...{TREASURY_WALLET.slice(-8)}
+      </p>
+    </div>
+  );
+}
