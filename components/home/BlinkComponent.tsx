@@ -8,11 +8,23 @@ const TREASURY_WALLET = "FEARFtN9VueEFVDCahtoWGu1A8Xdsmr2et3iWqAVo6hg";
 const RPC_URL = "https://api.mainnet-beta.solana.com";
 
 export function BlinkComponent() {
-  const { publicKey, signTransaction } = useWallet();
+  const { publicKey, signTransaction, connect, connected, wallets, select } = useWallet();
   const [selectedAmount, setSelectedAmount] = useState<number>(0.1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+
+  const handleConnect = async () => {
+    try {
+      const phantomWallet = wallets.find(w => w.adapter.name === 'Phantom');
+      if (phantomWallet) {
+        select(phantomWallet.adapter.name);
+      }
+    } catch (err) {
+      setError('Failed to connect wallet');
+      console.error('Connect error:', err);
+    }
+  };
 
   const amounts = [0.1, 0.5, 1.0];
 
@@ -129,18 +141,24 @@ export function BlinkComponent() {
 
       {/* Donate Button */}
       <button
-        onClick={() => handleTransaction(selectedAmount)}
-        disabled={!publicKey || isLoading}
+        onClick={() => {
+          if (!publicKey) {
+            handleConnect();
+          } else {
+            handleTransaction(selectedAmount);
+          }
+        }}
+        disabled={isLoading}
         className={`w-full py-4 rounded-lg font-bold text-lg transition-all ${
-          publicKey && !isLoading
+          !isLoading
             ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/50"
-            : "bg-white/10 text-white/50 cursor-not-allowed"
+            : "bg-blue-600/50 text-white/70 cursor-not-allowed"
         }`}
       >
-        {!publicKey
-          ? "Connect Wallet"
-          : isLoading
-            ? "Processing..."
+        {isLoading
+          ? "Processing..."
+          : !publicKey
+            ? "Connect Wallet"
             : `Donate ${selectedAmount} SOL`}
       </button>
 
