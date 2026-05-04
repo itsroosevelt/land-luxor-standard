@@ -2,9 +2,6 @@
   "framework": "nextjs",
   "buildCommand": "npm run build && npm run postbuild",
   "installCommand": "npm install",
-  "env": [
-    "NEXT_PUBLIC_RPC_URL"
-  ],
   "headers": [
     {
       "source": "/(.*)",
