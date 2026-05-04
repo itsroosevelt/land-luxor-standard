@@ -1,8 +1,8 @@
 {
   "rules": [
     {
-      "pathPattern": "/**",
-      "apiPath": "https://byluxor.com/api/actions/donate"
+      "pathPattern": "/api/actions/donate",
+      "apiPath": "/api/actions/donate"
     }
   ]
 }
