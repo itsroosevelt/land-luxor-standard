@@ -48,6 +48,8 @@ secrets/
 !lib/idl/*.json
 !vercel.json
 !public/actions.json
+!app/api/actions.json/
+!app/api/actions.json/**
 
 # Exclusion for specific folders that might contain json we WANT to keep
 # But since wallets/ are keys, we should BE CAREFUL.
