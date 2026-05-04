@@ -137,7 +137,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         </Link>
 
                         <Link
-                            href="https://dial.to/?action=solana-action:https://www.byluxor.com/api/actions/donate"
+                            href="https://dial.to/?action=solana-action:https://byluxor.com/api/actions/donate"
                             target="_blank"
                             rel="noopener noreferrer"
                             suppressHydrationWarning
