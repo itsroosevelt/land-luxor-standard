@@ -1,0 +1,6 @@
+# Firebase App Hosting Configuration
+# NOTE: This project uses Vercel for frontend deployment, not Firebase App Hosting
+# This file is intentionally minimal to prevent accidental deployments
+
+kind: 'AppHostingYaml'
+schemaVersion: 'v1'
