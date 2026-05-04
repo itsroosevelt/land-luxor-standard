@@ -24,7 +24,7 @@ async function generate() {
     console.log('--- Generating Static Sitemap ---');
 
     const sitemapEntries = [];
-    const baseUrl = 'https://byluxor.xyz';
+    const baseUrl = 'https://byluxor.com';
 
     // 1. Static Routes
     for (const locale of locales) {

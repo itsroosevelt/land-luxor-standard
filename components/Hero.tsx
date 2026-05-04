@@ -34,14 +34,14 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
     useEffect(() => {
         if (bgVideoRef.current) {
-            if (isSectionInView) bgVideoRef.current.play().catch(() => {});
+            if (isSectionInView) bgVideoRef.current.play().catch(() => { });
             else bgVideoRef.current.pause();
         }
     }, [isSectionInView]);
 
     useEffect(() => {
         if (presaleVideoRef.current) {
-            if (isPresaleInView) presaleVideoRef.current.play().catch(() => {});
+            if (isPresaleInView) presaleVideoRef.current.play().catch(() => { });
             else presaleVideoRef.current.pause();
         }
     }, [isPresaleInView]);
@@ -90,7 +90,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
             {/* 2. Content Layer Container */}
             <div className="relative z-10 w-full px-6 pt-10 pb-24 md:pb-44 md:px-16 lg:px-24 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
-                
+
                 {/* Original Text Layer */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -110,7 +110,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
                     {/* Main Title - Scaled for impact on mobile and tablets */}
                     <h1 className="text-4xl md:text-6xl lg:text-6xl font-medium text-white mb-6 md:mb-5 tracking-tight leading-[1.05] font-sans whitespace-pre-line group-hover:scale-[1.01] transition-transform duration-700">
-                         {title.split('Luxor').map((part, i, arr) => (
+                        {title.split('Luxor').map((part, i, arr) => (
                             <Fragment key={i}>
                                 {part}
                                 {i !== arr.length - 1 && <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Luxor</span>}
@@ -137,7 +137,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         </Link>
 
                         <Link
-                            href="https://dial.to/?action=solana-action:https://www.byluxor.xyz/api/actions/donate"
+                            href="https://dial.to/?action=solana-action:https://www.byluxor.com/api/actions/donate"
                             target="_blank"
                             rel="noopener noreferrer"
                             suppressHydrationWarning
@@ -148,13 +148,13 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                     className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0"
                 >
-                    <Link 
+                    <Link
                         ref={presaleCardRef}
                         href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
                         target="_blank"
@@ -171,22 +171,22 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             className="absolute inset-0 w-full h-full object-cover"
                             src={presaleVideoUrl}
                         />
-                        
+
                         {/* Overlay Filter for legibility */}
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] group-hover:bg-blue-900/40 group-hover:backdrop-blur-[2px] transition-all duration-500" />
 
                         {/* Countdown Information */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20">
                             {/* Card Status Badge */}
-                             <motion.div 
+                            <motion.div
                                 animate={{ scale: [1, 1.05, 1] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                                 className="px-4 py-1.5 rounded-full border border-white/20 bg-blue-900/30 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-blue-400 transition-colors"
-                             >
+                            >
                                 <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
                                 <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">{badgeText}</span>
-                             </motion.div>
-                            
+                            </motion.div>
+
                             {isMounted ? (
                                 <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
                                     <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">

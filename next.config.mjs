@@ -17,6 +17,7 @@ const nextConfig = {
         ],
         formats: ['image/avif', 'image/webp'],
     },
+    output: 'standalone',
     compress: true,
     async headers() {
         return [
