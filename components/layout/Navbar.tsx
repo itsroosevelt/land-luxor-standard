@@ -9,7 +9,12 @@ import {
     Lock, Flame, Copy, ExternalLink,
     Users, Briefcase, Info, Map,
     Zap, Vote, Search, Globe,
-    FileText, Layers
+    FileText, Layers,
+    Network, Route, BookOpenText, Building2,
+    HeartHandshake, Key, Rocket, Sparkles, BookOpen,
+    UsersRound, Cpu, Compass, Github, LockKeyhole,
+    FileCode2, Landmark, Wallet, Handshake, Store,
+    Award, FileBadge, ArrowRightLeft, Activity, Telescope
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -107,47 +112,47 @@ export default function Navbar() {
 
     const megaMenus: Record<string, MegaMenuItem[]> = {
         project: [
-            { icon: Users, title: t('team'), desc: t('mega.eco_desc_1'), href: '/coming-soon' },
-            { icon: Map, title: t('roadmap'), desc: t('mega.eco_desc_3'), href: '/roadmap' },
-            { icon: Info, title: t('docs'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
-            { icon: Briefcase, title: t('mega.eco_title_4'), desc: t('mega.eco_desc_4'), href: '/coming-soon' },
-            { icon: Zap, title: "Donate", desc: "Support the Luxor ecosystem.", href: '/donate' },
-            { icon: ShieldCheck, title: "Private Sale", desc: "Access the private sale details.", href: '/private-sale' },
-            { icon: Flame, title: "Presale", desc: "Join the official presale.", href: '/presale' },
+            { icon: Sparkles, title: t('team'), desc: t('mega.eco_desc_1'), href: '/coming-soon' },
+            { icon: Route, title: t('roadmap'), desc: t('mega.eco_desc_3'), href: '/roadmap' },
+            { icon: BookOpen, title: t('docs'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
+            { icon: Building2, title: t('mega.eco_title_4'), desc: t('mega.eco_desc_4'), href: '/coming-soon' },
+            { icon: HeartHandshake, title: "Donate", desc: "Support the Luxor ecosystem.", href: '/donate' },
+            { icon: Lock, title: "Private Sale", desc: "Access the private sale details.", href: '/private-sale' },
+            { icon: Rocket, title: "Presale", desc: "Join the official presale.", href: '/presale' },
         ],
         ecosystem: [
-            { icon: Users, title: t('mega.eco_title_1'), desc: t('mega.eco_desc_1'), href: '/coming-soon' },
-            { icon: Zap, title: t('mega.eco_title_2'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
-            { icon: Map, title: t('mega.eco_title_3'), desc: t('mega.eco_desc_3'), href: '/coming-soon' },
-            { icon: Search, title: t('github'), desc: t('github_desc'), href: 'https://github.com', external: true },
+            { icon: UsersRound, title: t('mega.eco_title_1'), desc: t('mega.eco_desc_1'), href: '/coming-soon' },
+            { icon: Cpu, title: t('mega.eco_title_2'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
+            { icon: Compass, title: t('mega.eco_title_3'), desc: t('mega.eco_desc_3'), href: '/coming-soon' },
+            { icon: Github, title: t('github'), desc: t('github_desc'), href: 'https://github.com', external: true },
         ],
         tokenomics: [
             { icon: PieChart, title: t('mega.tok_title_1'), desc: t('mega.tok_desc_1'), href: '/coming-soon' },
-            { icon: Users, title: t('holders'), desc: t('holders_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders', external: true },
-            { icon: Lock, title: t('mega.tok_title_3'), desc: t('mega.tok_desc_3'), href: '/coming-soon' },
-            { icon: ShieldCheck, title: t('mega.tok_title_4'), desc: t('contract_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: UsersRound, title: t('holders'), desc: t('holders_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/token-holders', external: true },
+            { icon: LockKeyhole, title: t('mega.tok_title_3'), desc: t('mega.tok_desc_3'), href: '/coming-soon' },
+            { icon: FileCode2, title: t('mega.tok_title_4'), desc: t('contract_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
         ],
         utility: [
             { icon: Flame, title: t('mega.util_title_1'), desc: t('mega.util_desc_1'), href: '/coming-soon' },
-            { icon: Vote, title: t('mega.util_title_2'), desc: t('mega.util_desc_2'), href: '/coming-soon' },
-            { icon: Globe, title: t('mega.util_title_3'), desc: t('solscan_desc'), href: 'https://solscan.io', external: true },
+            { icon: Landmark, title: t('mega.util_title_2'), desc: t('mega.util_desc_2'), href: '/coming-soon' },
+            { icon: Telescope, title: t('mega.util_title_3'), desc: t('solscan_desc'), href: 'https://solscan.io', external: true },
         ],
         business: [
-            { icon: Zap, title: t('business'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
-            { icon: Briefcase, title: t('mega.eco_title_1'), desc: 'Partner with Luxor.', href: '/coming-soon' },
-            { icon: Map, title: t('mega.eco_title_3'), desc: 'Merchant directory.', href: '/coming-soon' },
+            { icon: Wallet, title: t('business'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
+            { icon: Handshake, title: t('mega.eco_title_1'), desc: 'Partner with Luxor.', href: '/coming-soon' },
+            { icon: Store, title: t('mega.eco_title_3'), desc: 'Merchant directory.', href: '/coming-soon' },
         ],
         security: [
             { icon: ShieldCheck, title: t('mega.tok_title_2'), desc: t('mega.tok_desc_2'), href: '/coming-soon' },
-            { icon: Info, title: t('certificates'), desc: t('certificates_desc'), href: '/coming-soon' },
-            { icon: Lock, title: t('contract_verified'), desc: t('contract_verified_desc'), href: '/coming-soon' },
+            { icon: Award, title: t('certificates'), desc: t('certificates_desc'), href: '/coming-soon' },
+            { icon: FileBadge, title: t('contract_verified'), desc: t('contract_verified_desc'), href: '/coming-soon' },
         ],
         onchain: [
-            { icon: Zap, title: "Phantom", desc: t('phantom_desc'), href: 'https://phantom.app/', external: true },
-            { icon: Zap, title: "Raydium (Swap)", desc: t('jupiter_desc'), href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Search, title: "DexScreener", desc: t('dex_desc'), href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Zap, title: "Orb Markets", desc: t('orb_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
-            { icon: Globe, title: "Solscan", desc: t('solscan_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Wallet, title: "Phantom", desc: t('phantom_desc'), href: 'https://phantom.app/', external: true },
+            { icon: ArrowRightLeft, title: "Raydium (Swap)", desc: t('jupiter_desc'), href: 'https://raydium.io/swap/?inputMint=sol&outputMint=7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Activity, title: "DexScreener", desc: t('dex_desc'), href: 'https://dexscreener.com/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Landmark, title: "Orb Markets", desc: t('orb_desc'), href: 'https://orbmarkets.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
+            { icon: Search, title: "Solscan", desc: t('solscan_desc'), href: 'https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth', external: true },
         ]
     };
 
@@ -341,21 +346,36 @@ export default function Navbar() {
 
                                     {/* Menu Items */}
                                     <div className="col-span-3 grid grid-cols-2 gap-x-12 gap-y-6">
-                                        {megaMenus[activeMega]?.map((item, idx) => (
-                                            item.onClick ? (
+                                        {megaMenus[activeMega]?.map((item, idx) => {
+                                            const Icon = item.icon;
+                                            
+                                            const content = (
+                                                <>
+                                                    <div className="w-14 h-14 flex-shrink-0 rounded-[1.2rem] bg-transparent border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-all duration-300 relative overflow-hidden">
+                                                        <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                        <Icon 
+                                                            size={26} 
+                                                            className={`relative z-10 transition-colors text-blue-500 group-hover:text-blue-400`} 
+                                                            strokeWidth={1.5} 
+                                                            fill="currentColor" 
+                                                            style={{ fillOpacity: 0.2 }}
+                                                        />
+                                                    </div>
+                                                    <div className="pt-1">
+                                                        <h4 className="text-white font-normal text-sm mb-1">{item.title}</h4>
+                                                        <p className="text-white/40 text-[11px] leading-relaxed">{item.desc}</p>
+                                                    </div>
+                                                </>
+                                            );
+
+                                            return item.onClick ? (
                                                 <button
                                                     suppressHydrationWarning
                                                     key={idx}
                                                     onClick={item.onClick}
-                                                    className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group text-left"
+                                                    className="flex items-start gap-5 p-3 rounded-2xl hover:bg-white/[0.02] transition-all group text-left"
                                                 >
-                                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors">
-                                                        <item.icon size={20} className="text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-white font-normal text-sm mb-1">{item.title}</h4>
-                                                        <p className="text-white/40 text-[10px] leading-tight font-mono">{item.desc}</p>
-                                                    </div>
+                                                    {content}
                                                 </button>
                                             ) : (
                                                 <Link
@@ -363,18 +383,12 @@ export default function Navbar() {
                                                     href={item.href as any}
                                                     target={item.external ? "_blank" : "_self"}
                                                     rel={item.external ? "noopener noreferrer" : ""}
-                                                    className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group"
+                                                    className="flex items-start gap-5 p-3 rounded-2xl hover:bg-white/[0.02] transition-all group"
                                                 >
-                                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-blue-600 group-hover:border-blue-500 transition-colors">
-                                                        <item.icon size={20} className="text-white" />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="text-white font-normal text-sm mb-1">{item.title}</h4>
-                                                        <p className="text-white/40 text-xs leading-tight">{item.desc}</p>
-                                                    </div>
+                                                    {content}
                                                 </Link>
-                                            )
-                                        ))}
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </div>
