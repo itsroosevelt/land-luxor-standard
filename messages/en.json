@@ -511,8 +511,251 @@
         "title": "Support Luxor",
         "description": "Contribute SOL to the Luxor Treasury and help us build the future of the Solana ecosystem."
     },
+    "PrivateSale": {
+        "hero": {
+            "title": "Luxor Private Sale",
+            "subtitle": "Exclusive access to the $LXR liquidity engine."
+        },
+        "description": {
+            "title": "Be Part of the Future",
+            "text": "Secure your participation in the $LXR ecosystem before its official launch. An exclusive opportunity for early contributors seeking to drive network utility and growth from its origin.",
+            "cta_participate": "Participate Now",
+            "cta_whitepaper": "Technical Details"
+        },
+        "infrastructure": {
+            "eyebrow": "High Performance",
+            "title": "Exchange infrastructure designed for commercial operability",
+            "subtitle": "Built on Solana to handle millions of transactions with sub-second finality.",
+            "items": [
+                {
+                    "title": "The Network Challenge",
+                    "desc": "Current digital ecosystems often lack a fluid payment structure and real utility connecting digital assets with tangible services. This creates isolated environments without real demand to sustain network activity."
+                },
+                {
+                    "title": "Luxor Architecture",
+                    "desc": "Luxor deploys a Web3 infrastructure on Solana designed to orchestrate services and automated workflows. Our model implements a closed-loop economy where each asset fulfills a specific technical function, ensuring the network is used for its purpose: efficient value and service exchange."
+                },
+                {
+                    "title": "Advancements & Operability",
+                    "points": [
+                        "Core Infrastructure: Main architecture developed and in final integration phase.",
+                        "Governance Structure: Operating model based on a DAO for transparent management of ecosystem resources.",
+                        "2026 Roadmap: Prepared for the activation of the payment engine and automated services by late May, connecting blockchain technology with real-world operations."
+                    ]
+                },
+                {
+                    "title": "Product Ecosystem",
+                    "desc": "We are building the physical and digital layer of our network. Currently developing Roosevelt Artificial Intelligence (RAI), accessible through byroosevelt.com. In parallel, we build Luxor Pay (our intelligent payment gateway) and advanced Smart Glasses. These two products are natively connected and powered by RAI to unify the ecosystem experience."
+                }
+            ]
+        },
+        "tokenomics": {
+            "title": "Token Distribution",
+            "subtitle": "Detailed allocation of 2,025,000,000 $LXR by strategic category.",
+            "supply": "Total Supply",
+            "fixed": "Fixed and non-inflationary"
+        },
+        "governance": {
+            "title": "Team & Governance",
+            "text1": "In early stages, investment is as much in technology as in the people behind it. Our management team has an extensive track record in blockchain, technological development, and global financial structuring.",
+            "text2": "Luxor operates under the highest standards of technical transparency and legal compliance. In the long term, critical liquidity contract decisions will be directed towards a decentralized governance organization (DAO).",
+            "cta_participate": "Participate Now"
+        },
+        "technical": {
+            "title": "Technical Documentation",
+            "text": "We don't expect you to read every line of code, but we want you to know that the rigorous work is done. Access our public and technical documents for full transparency.",
+            "whitepaper": "Whitepaper",
+            "pitchdeck": "Pitch Deck",
+            "audits": "Audits"
+        },
+        "vesting": {
+            "title": "Vesting Options",
+            "subtitle": "Plans designed to incentivize organic growth and ecosystem sustainability.",
+            "unlock_label": "Unlock",
+            "access_prefix": "Access",
+            "plans": {
+                "agility": {
+                    "name": "Agility Vesting",
+                    "duration": "12 Months",
+                    "benefit": "Fast access to liquidity.",
+                    "unlock": "8.33% constant monthly",
+                    "access": "$0 - $1,000"
+                },
+                "growth": {
+                    "name": "Growth Vesting",
+                    "duration": "24 Months",
+                    "benefit": "+5% bonus in tokens.",
+                    "unlock": "4.16% constant monthly",
+                    "recommended": "Recommended",
+                    "access": "$1,000 - $100,000"
+                },
+                "foundational": {
+                    "name": "Foundational Vesting",
+                    "duration": "48 Months",
+                    "benefit": "+10% bonus in tokens.",
+                    "unlock": "2.08% constant monthly",
+                    "access": "+$100,000"
+                }
+            },
+            "rules": {
+                "leadership": {
+                    "title": "Leadership Bonus",
+                    "text": "Activate a <span>10% initial unlock</span> on January 02, 2027 by exceeding 10 confirmed referrals. The remaining 90% will follow your chosen monthly plan."
+                },
+                "segmentation": {
+                    "title": "Participation Segmentation",
+                    "text": "Flexibility depends on your commitment. Participants with amounts from <white>$0</white> to <white>$1,000</white> access the 12-month plan, from <white>$1,000</white> to <white>$100,000</white> the 24-month plan, and strategic participants (<blue>+$100,000</blue>) exclusively access the Foundational Plan."
+                },
+                "transparency": {
+                    "title": "Transparency with Streamflow",
+                    "text": "Manage your vesting in real time. Connect your wallet and watch your tokens unlock second by second automatically.",
+                    "features": ["No manual claims", "Zero human error", "Full balance visibility"]
+                }
+            },
+            "cta_participate": "Participate Now"
+        },
+        "roadmap": {
+            "title": "Roadmap",
+            "subtitle": "Strategic milestones designed for the sustainable growth of the Luxor network.",
+            "status_active": "In Progress",
+            "items": [
+                {
+                    "year": "2026",
+                    "date": "May 15 – October 31",
+                    "title": "Exclusive Private Sale",
+                    "description": "Exclusive participation period for early collaborators. Focus on treasury consolidation and validation of Luxor's technical infrastructure.",
+                    "details": ["KYC & Whitelist", "Multisig Treasury", "Technical Validation"]
+                },
+                {
+                    "year": "2026",
+                    "date": "November 01",
+                    "title": "Public Presale (Pinksale)",
+                    "description": "Opening of the public presale under the LXR/SOL pair on the Pinksale platform, allowing the global community to enter before the listing.",
+                    "details": ["Pinksale Launchpad", "SOL Initial Liquidity", "Global Marketing"]
+                },
+                {
+                    "year": "2027",
+                    "date": "January 01 - 05",
+                    "title": "Official Token Launch",
+                    "description": "Official activation of $LXR. Deployment of the distribution contract on Streamflow for token claim and official listing on DEX.",
+                    "details": ["Token Claim (Streamflow)", "DEX Listing", "Ecosystem Utility"]
+                }
+            ]
+        },
+        "referral": {
+            "title": "Incentive Program",
+            "community": {
+                "title": "Community Builders",
+                "text": "Build a network of collaborators. For every participant who joins through you, you earn a {span} on their participation.",
+                "no_limit": "No referral limit"
+            },
+            "commissions": {
+                "title": "Direct Commissions",
+                "text": "Receive {span} in tokens for every confirmed referral. Rewards are distributed automatically.",
+                "note": "Bonus applied only to successful participations."
+            },
+            "telegram": {
+                "title": "Join our Telegram",
+                "text": "Connect with other participants, get real-time support, and stay updated on the referral program.",
+                "cta": "Join Community"
+            },
+            "footer_note": "Building the future together. The growth of Luxor depends on the strength of its community."
+        },
+        "instructions": {
+            "title": "Participation Instructions",
+            "subtitle": "Participating in our exclusive sale is a simple process designed to ensure the security of both parties and ensure long-term alignment with the Luxor ecosystem. Follow these steps to secure your position:",
+            "steps": [
+                {
+                    "step": "Step 1",
+                    "title": "Initiate Your Application",
+                    "desc": "Click on the <button>Participate Now</button> button. This will automatically open a pre-drafted email directed to our support team."
+                },
+                {
+                    "step": "Step 2",
+                    "title": "Complete Basic Information",
+                    "desc": "You will need to fill in the following fields in the email:",
+                    "fields": ["Amount (USDC/SOL)", "Country of Residence", "ID or Passport", "Wallet Address", "Identity Proof (KYC)"]
+                },
+                {
+                    "step": "Step 3",
+                    "title": "Verification & Contact",
+                    "desc": "Once sent, our team will review your profile. We will contact you within <hours>48 hours</hours> to coordinate final details."
+                },
+                {
+                    "step": "Step 4",
+                    "title": "Security & Deposit",
+                    "desc": "We follow a strict protocol: first a <test>test transaction</test> to verify your wallet, and then the deposit to our Multisig treasury."
+                },
+                {
+                    "step": "Step 5",
+                    "title": "Distribution Contract",
+                    "desc": "We create an issuance contract on <streamflow>Streamflow</streamflow>. You can claim your tokens transparently according to the agreed schedule."
+                }
+            ],
+            "details": {
+                "title": "Important Details",
+                "validity": "Validity: Until the start of the Pinksale presale.",
+                "launch": "Launch: The contract activates on January 02, 2027.",
+                "support": "Support: For questions or concerns, resolve them via the contact email."
+            },
+            "quote": "We want to ensure we collaborate with long-term aligned participants.",
+            "cta_details": "Technical Details"
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "Quick answers about security, compliance, and processes.",
+            "items": [
+                {
+                    "q": "How do I apply for the private sale?",
+                    "a": "The process starts with an email request. After profile verification (KYC), you will receive final instructions to secure your position and deposit into our Multisig treasury."
+                },
+                {
+                    "q": "When will I receive my first tokens?",
+                    "a": "There is no single TGE; unlocking is monthly. From January 02, 2027, you can claim your tokens on Streamflow transparently, following the release schedule chosen in your plan."
+                },
+                {
+                    "q": "What happens if the Soft Cap is not reached?",
+                    "a": "The Soft Cap is $500,000. If not reached, Luxor will activate reserve funds to ensure infrastructure operability and network deployment, always protecting the initial participants' vision."
+                },
+                {
+                    "q": "How do hardware and AI connect with the token?",
+                    "a": "The $LXR token is the 'gas' needed for Roosevelt AI to process automated operations and allows Smart Glasses to interact with the network autonomously for service exchange."
+                },
+                {
+                    "q": "When does this private sale end?",
+                    "a": "It officially ends on October 31, 2026. It is essential to complete your participation before this date to secure private sale conditions prior to the Pinksale launch."
+                },
+                {
+                    "q": "Is $LXR dependent on other systems?",
+                    "a": "No. It is a sovereign economic entity on the Solana network. Its operations and value are intrinsic to its own code and governance, with a fixed total supply of 2,025,000,000 tokens."
+                },
+                {
+                    "q": "What happens to the raised funds?",
+                    "a": "They are strategically allocated to initial token liquidity, continuous development of the Luxor ecosystem, global marketing, and security audits prior to the public launch."
+                }
+            ]
+        },
+        "communication": {
+            "title": "Connect with Us",
+            "subtitle": "Join our community and stay up to date with all updates.",
+            "email_support": "Email Support"
+        },
+        "technical_sheet": {
+            "title": "Technical Sheet",
+            "subtitle": "Official parameters for the private funding round. Designed to attract participants who share our long-term vision.",
+            "price_label": "Price per $LXR",
+            "min_participation_label": "Minimum Participation Value",
+            "accepted_coins_label": "Accepted Coins",
+            "network_label": "Network",
+            "treasury_title": "Treasury",
+            "treasury_subtitle": "Wallet address where the raised funds will be deposited.",
+            "spl_address_label": "Solana SPL Address",
+            "multisig_note": "Funds protected under a 4-of-6 Multisig scheme.",
+            "verify_note": "Always verify that the address matches before sending."
+        }
+    },
     "Metadata": {
         "title": "Luxor (LXR) | The Intelligence of Value",
-        "description": "General Vision\nLuxor ($LXR) is a next-generation utility token deployed on the Solana network, designed to be the economic engine of an ecosystem driven by Artificial Intelligence. Conceived and structured meticulously throughout 2025 (01/01/2025 - 12/31/2025), Luxor is born with the mission to strengthen the economy of the Western Hemisphere and consolidate the United States as the global capital of digital assets.\n\nTokenomics and Launch\nTotal Supply: 2.025 billion $LXR (Commemorative figure to the year of its structuring).\n\nFractional Units: The cents of Luxor are called LUX.\n\nOfficial Launch of $LXR: On May 4, 2026, at midnight, the main liquidity will be activated through the Meteora or Raydium protocols.\nFractional Ecosystem (LUX): The cents of Luxor, called LUX, function as a pegged asset and their trading initials will be LUX. To ensure dynamic distribution from the start, the launch of LUX will take place on the same day as the presale via the Pump.fun platform, allowing agile initial access to the project's economy.\n\nTransparency: The entire roadmap and technical fundamentals are available in our public repository for community auditing.\n\nUtility Ecosystem and Products\n$LXR is not just a currency; it is the access key to a suite of technological products developed by the project's sponsoring companies:\n\nRoosevelt AI (AI): An autonomous Artificial Intelligence agent integrated into Solana, capable of independently managing personal life and high-level business management.\n\nSmart Hardware: Advanced development of smart glasses with native integration to the Luxor ecosystem.\n\nGlobal Payment Gateway: A financial infrastructure designed for instant and secure transactions.\n\nThese products will be released in phases upon reaching specific milestones of $LXR per capita accumulation in the market.\n\nContinental Commitment\nLuxor is focused on the well-being and abundance of the entire American continent. We seek to forge a path to the technological future while respecting the cultural diversity of each nation, from north to south, promoting financial sovereignty based on the innovation and technological development of the West."
+        "description": "Luxor ($LXR) is a next-generation utility token deployed on the Solana network, designed to be the economic engine of an ecosystem driven by Artificial Intelligence. Conceived and structured meticulously throughout 2025, Luxor is born with the mission to strengthen the economy of the Western Hemisphere and consolidate the United States as the global capital of digital assets."
     }
 }

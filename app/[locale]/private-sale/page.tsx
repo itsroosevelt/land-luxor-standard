@@ -1,14 +1,32 @@
+'use client';
+
 import React from 'react';
+import { HeroSection } from './sections/HeroSection';
+import { HeroDescriptionSection } from './sections/HeroDescriptionSection';
+import { InfrastructureSection } from './sections/InfrastructureSection';
+import { TechnicalSheetSection } from './sections/TechnicalSheetSection';
+import { TokenomicsSection } from './sections/TokenomicsSection';
+import { VestingSection } from './sections/VestingSection';
+import { ReferralSection } from './sections/ReferralSection';
+import { CommunicationSection } from './sections/CommunicationSection';
+import { RoadmapSection } from './sections/RoadmapSection';
+import { GovernanceDocsSection } from './sections/GovernanceDocsSection';
+import { FaqCtaSection } from './sections/FaqCtaSection';
 
 export default function PrivateSalePage() {
     return (
-        <main className="min-h-[100vh] bg-black flex flex-col items-center justify-center text-white px-6">
-            <h1 className="text-4xl md:text-6xl font-medium mb-6 font-sans text-center">
-                Private Sale Details
-            </h1>
-            <p className="text-white/60 max-w-lg text-center font-light leading-relaxed">
-                Information regarding the private sale will be available here soon.
-            </p>
+        <main className="min-h-screen bg-black text-white selection:bg-blue-500/30 font-sans pb-24">
+            <HeroSection />
+            <HeroDescriptionSection />
+            <InfrastructureSection />
+            <TokenomicsSection />
+            <GovernanceDocsSection />
+            <TechnicalSheetSection />
+            <VestingSection />
+            <RoadmapSection />
+            <ReferralSection />
+            <FaqCtaSection />
+            <CommunicationSection />
         </main>
     );
 }
