@@ -646,12 +646,12 @@
             "title": "Incentive Program",
             "community": {
                 "title": "Community Builders",
-                "text": "Build a network of collaborators. For every participant who joins through you, you earn a {span} on their participation.",
+                "text": "Build a network of collaborators. For every participant who joins through you, you earn a <span>10% bonus</span> on their participation.",
                 "no_limit": "No referral limit"
             },
             "commissions": {
                 "title": "Direct Commissions",
-                "text": "Receive {span} in tokens for every confirmed referral. Rewards are distributed automatically.",
+                "text": "Receive a <span>10% bonus</span> in tokens for every confirmed referral. Rewards are distributed automatically.",
                 "note": "Bonus applied only to successful participations."
             },
             "telegram": {

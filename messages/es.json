@@ -646,12 +646,12 @@
             "title": "Programa de Incentivos",
             "community": {
                 "title": "Constructores de Comunidad",
-                "text": "Crea una red de colaboradores. Por cada participante que se una a través de ti, ganas un {span} sobre su participación.",
+                "text": "Crea una red de colaboradores. Por cada participante que se una a través de ti, ganas un <span>10% de bonus</span> sobre su participación.",
                 "no_limit": "Sin límite de referidos"
             },
             "commissions": {
                 "title": "Comisiones Directas",
-                "text": "Recibe {span} en tokens por cada referido confirmado. Las recompensas se distribuyen de forma automática.",
+                "text": "Recibe un <span>10% de bonus</span> en tokens por cada referido confirmado. Las recompensas se distribuyen de forma automática.",
                 "note": "Bonus aplicado solo a participaciones exitosas."
             },
             "telegram": {
