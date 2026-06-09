@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { TeamMemberItem } from '@/components/team/TeamPlaylist';
+import { TeamMemberItem } from '@/components/team/types';
 import { getAdjacentPaths, pathFromMemberId } from '@/lib/team-slugs';
 
 interface TeamProfileViewProps {
