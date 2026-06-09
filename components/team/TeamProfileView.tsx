@@ -24,7 +24,7 @@ function MemberVisual({ member }: { member: TeamMemberItem }) {
                 alt={member.name}
                 fill
                 className="object-cover object-center"
-                sizes="(max-width: 840px) 90vw, 840px"
+                sizes="(max-width: 1024px) 92vw, 960px"
             />
         );
     }
@@ -34,7 +34,7 @@ function MemberVisual({ member }: { member: TeamMemberItem }) {
             className="absolute inset-0 flex items-center justify-center"
             style={{ background: `linear-gradient(135deg, ${from} 0%, ${to} 55%, #1a1a1a 100%)` }}
         >
-            <span className="text-[80px] sm:text-[120px] font-bold text-white/10 select-none">
+            <span className="text-[72px] sm:text-[100px] font-bold text-white/10 select-none">
                 {member.initials}
             </span>
         </div>
@@ -43,20 +43,20 @@ function MemberVisual({ member }: { member: TeamMemberItem }) {
 
 function ProfileCard({ member, showPlay }: { member: TeamMemberItem; showPlay: boolean }) {
     return (
-        <div className="relative w-full max-w-[840px] mx-auto aspect-[16/10] sm:aspect-[16/9] rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/10 bg-[#1a1a1a] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.5)]">
+        <div className="relative w-full aspect-[4/3] max-h-[48vh] sm:max-h-[53vh] lg:max-h-[min(61vh,720px)] rounded-[22px] sm:rounded-[28px] overflow-hidden border border-white/10 bg-[#1a1a1a] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.5)]">
             <MemberVisual member={member} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-            <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-10 md:p-12">
+            <div className="absolute inset-0 flex flex-col justify-end items-start p-5 sm:p-6 lg:p-8">
                 <div className="flex items-center gap-3 max-w-xl">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight leading-tight">
+                    <h2 className="text-lg sm:text-2xl lg:text-3xl font-normal text-white tracking-tight leading-tight">
                         {member.headline}
                     </h2>
                     <div className="flex gap-1 shrink-0" aria-hidden>
-                        <span className="w-1 h-7 sm:h-9 rounded-full bg-blue-500" />
-                        <span className="w-1 h-7 sm:h-9 rounded-full bg-red-500" />
-                        <span className="w-1 h-7 sm:h-9 rounded-full bg-yellow-400" />
-                        <span className="w-1 h-7 sm:h-9 rounded-full bg-green-500" />
+                        <span className="w-1 h-6 sm:h-8 rounded-full bg-blue-500" />
+                        <span className="w-1 h-6 sm:h-8 rounded-full bg-red-500" />
+                        <span className="w-1 h-6 sm:h-8 rounded-full bg-yellow-400" />
+                        <span className="w-1 h-6 sm:h-8 rounded-full bg-green-500" />
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@ function ProfileCard({ member, showPlay }: { member: TeamMemberItem; showPlay: b
                 <button
                     type="button"
                     suppressHydrationWarning
-                    className="absolute bottom-5 right-5 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/25 flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                    className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/25 flex items-center justify-center text-white hover:bg-white/30 transition-colors"
                     aria-label={`${member.name} — video`}
                 >
                     <Play size={20} className="ml-0.5 fill-white" />
@@ -112,61 +112,62 @@ export function TeamProfileView({ memberId }: TeamProfileViewProps) {
     if (!member) return null;
 
     return (
-        <div className="min-h-screen bg-black pt-20 sm:pt-24 pb-24 overflow-x-hidden">
-            <div className="w-full px-4 sm:px-6 mb-12 sm:mb-16 text-center">
+        <div className="h-[calc(100dvh-4rem)] flex flex-col overflow-hidden bg-black py-4 sm:py-6">
+            {/* Name — full viewport width so it stays visually centered */}
+            <header className="shrink-0 w-full text-center px-4 pt-4 sm:pt-6 lg:pt-10 mb-4 sm:mb-6">
                 <AnimatePresence mode="wait">
                     <motion.h1
                         key={member.id}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.35 }}
-                        className="text-4xl sm:text-5xl md:text-6xl font-medium text-white tracking-tight"
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.3 }}
+                        className="w-full text-center text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-white tracking-tight leading-tight"
                     >
                         {member.name}
                     </motion.h1>
                 </AnimatePresence>
-            </div>
+            </header>
 
-            <section className="w-full max-w-5xl mx-auto px-4 sm:px-6">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-12">
-                    <div className="w-full lg:flex-1">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={member.id}
-                                initial={{ opacity: 0, x: -24 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 24 }}
-                                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                            >
-                                <ProfileCard member={member} showPlay={mounted} />
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
-
+            {/* Card + description */}
+            <div className="flex-1 min-h-0 flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6 lg:gap-[2.5cm] w-full max-w-[1600px] pl-4 sm:pl-6 lg:pl-[4cm] pr-4 sm:pr-8 lg:pr-12">
+                <div className="shrink-0 w-full lg:w-[70%]">
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={`desc-${member.id}`}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -12 }}
-                            transition={{ duration: 0.35, ease: 'easeInOut' }}
-                            className="w-full lg:max-w-md lg:pt-6"
+                            key={member.id}
+                            initial={{ opacity: 0, x: -16 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 16 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
                         >
-                            <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-3">
-                                {member.role}
-                            </p>
-                            <p className="text-sm sm:text-base text-white/55 leading-relaxed">
-                                {member.description}
-                            </p>
+                            <ProfileCard member={member} showPlay={mounted} />
                         </motion.div>
                     </AnimatePresence>
                 </div>
 
-                <div className="mt-10 sm:mt-12 flex justify-center">
-                    <ProfileNav prevHref={prev} nextHref={next} />
-                </div>
-            </section>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={`desc-${member.id}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="flex-1 min-h-0 w-full lg:w-[30%] flex flex-col justify-center lg:py-2 lg:pr-2"
+                    >
+                        <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/35 font-normal mb-2 sm:mb-3">
+                            {member.role}
+                        </p>
+                        <p className="text-base sm:text-lg lg:text-xl text-white/60 leading-relaxed lg:leading-relaxed">
+                            {member.description}
+                        </p>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+
+            {/* Navigation */}
+            <footer className="shrink-0 pt-4 sm:pt-5 flex justify-center">
+                <ProfileNav prevHref={prev} nextHref={next} />
+            </footer>
         </div>
     );
 }
