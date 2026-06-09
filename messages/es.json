@@ -127,6 +127,11 @@
             "desc": "Caminamos hacia la frontera de lo posible, inspirados por la visión de los líderes que están rediseñando nuestra especie hoy:",
             "items": [
                 {
+                    "name": "Mercados y Estrategia",
+                    "desc": "Visión de futuro sobre los movimientos del capital inteligente.",
+                    "videoId": "_L_OOxgXCTk"
+                },
+                {
                     "name": "Elon Musk",
                     "desc": "Su búsqueda de una humanidad interplanetaria nos enseña que no debemos limitarnos a las fronteras terrestres.",
                     "videoId": "IgifEgm1-e0"
@@ -140,11 +145,6 @@
                     "name": "Mark Zuckerberg",
                     "desc": "Su enfoque en la conectividad global nos muestra que el mundo es una sola red.",
                     "videoId": "gF12Xn3C-0c"
-                },
-                {
-                    "name": "Mercados y Estrategia",
-                    "desc": "Visión de futuro sobre los movimientos del capital inteligente.",
-                    "videoId": "_L_OOxgXCTk"
                 },
                 {
                     "name": "Jensen Huang",
@@ -543,7 +543,16 @@
         "newsletter_placeholder": "Tu correo electrónico",
         "newsletter_cta": "Suscribirse",
         "link_autonomous": "Roosevelt AI",
-        "link_glasses": "Gafas Inteligentes"
+        "link_glasses": "Gafas Inteligentes",
+        "col_assets_title": "Activos",
+        "col_ecosystem_subtitle": "Ecosistema",
+        "asset_lxr": "$LXR | Activo de Utilidad Luxor",
+        "asset_xls": "$XLS | Activo del Mundo Real",
+        "asset_usdx": "$USDX | Activo Estable",
+        "eco_luxor_pay": "Luxor Pay",
+        "eco_royalty": "Institución Descentralizada de Regalías",
+        "eco_glasses": "Gafas Inteligentes",
+        "eco_rai": "Roosevelt Intelligence (AI)"
     },
     "Donate": {
         "title": "Apoya a Luxor",

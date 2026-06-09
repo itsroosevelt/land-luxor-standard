@@ -13,7 +13,18 @@ export default function Footer() {
 
     const socialLinks = getSocialLinks(t('docs'));
 
-    const footerSections = [
+    type FooterLink = { name: string; href: string; target?: string };
+
+    const footerSections: (
+        | { title: string; links: FooterLink[] }
+        | {
+              title: string;
+              type: 'assets';
+              assets: FooterLink[];
+              ecosystemSubtitle: string;
+              ecosystemLinks: FooterLink[];
+          }
+    )[] = [
         {
             title: tf('col_project_title'),
             links: [
@@ -26,15 +37,20 @@ export default function Footer() {
             ]
         },
         {
-            title: t('ecosystem'),
-            links: [
-                { name: tf('link_integra'), href: '/luxor-pay' },
-                { name: "Roosevelt Intelligence (AI)", href: 'https://www.byroosevelt.com/', target: '_blank' },
-                { name: "Intelligent Glasses", href: '/intelligent-glasses' },
-                { name: "Excelsior ($XLS)", href: '/excelsior' },
-                { name: "Lux Origin ($LUX)", href: '/lux-origin' },
-                { name: "Stablecoin ($USDX)", href: '/stablecoin' },
-            ]
+            title: tf('col_assets_title'),
+            type: 'assets',
+            assets: [
+                { name: tf('asset_lxr'), href: '/luxor' },
+                { name: tf('asset_xls'), href: '/excelsior' },
+                { name: tf('asset_usdx'), href: '/stablecoin' },
+            ],
+            ecosystemSubtitle: tf('col_ecosystem_subtitle'),
+            ecosystemLinks: [
+                { name: tf('eco_luxor_pay'), href: '/luxor-pay' },
+                { name: tf('eco_royalty'), href: '/coming-soon' },
+                { name: tf('eco_glasses'), href: '/intelligent-glasses' },
+                { name: tf('eco_rai'), href: 'https://www.byroosevelt.com/', target: '_blank' },
+            ],
         },
         {
             title: t('tokenomics'),
@@ -179,25 +195,73 @@ export default function Footer() {
                                     <div>
                                         <h3 className="text-white text-lg font-sans font-medium mb-3">{section.title}</h3>
                                     </div>
-                                    <ul className="flex flex-col gap-4">
-                                        {section.links.map((link, lIdx) => {
-                                            const isHighlight = link.name === 'Roosevelt Intelligence (AI)' || link.name === 'Roosevelt AI' || link.name === tf('link_autonomous');
-                                            return (
-                                                <li key={lIdx}>
-                                                    <Link
-                                                        href={link.href}
-                                                        target={(link as any).target}
-                                                        className={`${isHighlight
-                                                            ? "bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold"
-                                                            : "text-white/60 hover:text-white"
-                                                            } text-sm font-sans transition-colors flex items-center gap-2 group decoration-transparent`}
-                                                    >
-                                                        {link.name}
-                                                    </Link>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
+                                    {'links' in section ? (
+                                        <ul className="flex flex-col gap-4">
+                                            {section.links.map((link, lIdx) => {
+                                                const isHighlight =
+                                                    link.name === tf('eco_rai') ||
+                                                    link.name === 'Roosevelt Intelligence (AI)' ||
+                                                    link.name === tf('link_autonomous');
+                                                return (
+                                                    <li key={lIdx}>
+                                                        <Link
+                                                            href={link.href}
+                                                            target={link.target}
+                                                            className={`${isHighlight
+                                                                ? 'bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold'
+                                                                : 'text-white/60 hover:text-white'
+                                                                } text-sm font-sans transition-colors flex items-center gap-2 group decoration-transparent`}
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    ) : (
+                                        <>
+                                            <ul className="flex flex-col gap-4">
+                                                {section.assets.map((link, lIdx) => (
+                                                    <li key={`asset-${lIdx}`}>
+                                                        <Link
+                                                            href={link.href}
+                                                            target={link.target}
+                                                            className="text-white/60 hover:text-white text-sm font-sans transition-colors"
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            <div className="pt-2">
+                                                <h4 className="text-white/40 text-xs font-sans font-medium uppercase tracking-wider mb-4">
+                                                    {section.ecosystemSubtitle}
+                                                </h4>
+                                                <ul className="flex flex-col gap-4">
+                                                    {section.ecosystemLinks.map((link, lIdx) => {
+                                                        const isHighlight =
+                                                            link.name === tf('eco_rai') ||
+                                                            link.name === 'Roosevelt Intelligence (AI)' ||
+                                                            link.name === tf('link_autonomous');
+                                                        return (
+                                                            <li key={`eco-${lIdx}`}>
+                                                                <Link
+                                                                    href={link.href}
+                                                                    target={link.target}
+                                                                    className={`${isHighlight
+                                                                        ? 'bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold'
+                                                                        : 'text-white/60 hover:text-white'
+                                                                        } text-sm font-sans transition-colors`}
+                                                                >
+                                                                    {link.name}
+                                                                </Link>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             ))}
                         </div>
