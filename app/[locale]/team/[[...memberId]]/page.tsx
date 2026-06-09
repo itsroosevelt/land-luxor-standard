@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 import { TeamPageView } from '@/components/team/TeamPageView';
 import { TeamMemberItem } from '@/components/team/TeamPlaylist';
 import { isTeamMemberId, TEAM_MEMBER_IDS } from '@/lib/team-member-ids';
+
+const TEAM_LOCALES = ['en', 'es'] as const;
 
 interface Props {
     params: Promise<{ memberId?: string[]; locale: string }>;
@@ -13,7 +14,7 @@ interface Props {
 export function generateStaticParams() {
     const params: { locale: string; memberId?: string[] }[] = [];
 
-    for (const locale of routing.locales) {
+    for (const locale of TEAM_LOCALES) {
         params.push({ locale });
         for (const memberId of TEAM_MEMBER_IDS) {
             params.push({ locale, memberId: [memberId] });
@@ -25,6 +26,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { memberId, locale } = await params;
+
+    if (!TEAM_LOCALES.includes(locale as (typeof TEAM_LOCALES)[number])) {
+        return { title: 'Team - Luxor' };
+    }
+
     const slug = memberId?.[0];
     const t = await getTranslations({ locale, namespace: 'TeamPage' });
 
@@ -66,7 +72,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TeamPage({ params }: Props) {
-    const { memberId } = await params;
+    const { memberId, locale } = await params;
+
+    if (!TEAM_LOCALES.includes(locale as (typeof TEAM_LOCALES)[number])) {
+        notFound();
+    }
+
     const slug = memberId?.[0];
 
     if (slug && !isTeamMemberId(slug)) {
