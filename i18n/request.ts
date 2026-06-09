@@ -11,7 +11,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
     // Explicitly import messages to avoid build-time dynamic import errors
     const messages = {
         en: (await import('../messages/en.json')).default,
-        es: (await import('../messages/es.json')).default
+        es: (await import('../messages/es.json')).default,
+        fr: (await import('../messages/fr.json')).default,
+        pt: (await import('../messages/pt.json')).default
     };
 
     return {
