@@ -210,3 +210,34 @@ div.wallet-pill-container button.wallet-adapter-button:not([disabled]):hover {
 .wallet-adapter-modal-list-more-icon-rotate {
   fill: #ffffff !important;
 }
+
+/* Navbar: desktop layout only on mouse/trackpad screens (not touch tablets) */
+.nav-desktop-menu,
+.nav-desktop-actions,
+.nav-desktop-mega {
+  display: none;
+}
+
+.nav-mobile-trigger,
+.nav-mobile-overlay {
+  display: flex;
+}
+
+@media (min-width: 1280px) and (hover: hover) and (pointer: fine) {
+  .nav-desktop-menu {
+    display: block;
+  }
+
+  .nav-desktop-actions {
+    display: flex;
+  }
+
+  .nav-desktop-mega {
+    display: block;
+  }
+
+  .nav-mobile-trigger,
+  .nav-mobile-overlay {
+    display: none;
+  }
+}
