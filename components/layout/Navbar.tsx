@@ -127,7 +127,7 @@ export default function Navbar() {
 
     const megaMenus: Record<string, MegaMenuItem[]> = {
         project: [
-            { icon: Sparkles, title: t('team'), desc: t('mega.eco_desc_1'), href: '/coming-soon' },
+            { icon: Sparkles, title: t('team'), desc: t('mega.team_desc'), href: '/team' },
             { icon: Route, title: t('roadmap'), desc: t('mega.eco_desc_3'), href: '/roadmap' },
             { icon: BookOpen, title: t('docs'), desc: t('mega.eco_desc_2'), href: '/coming-soon' },
             { icon: Building2, title: t('mega.eco_title_4'), desc: t('mega.eco_desc_4'), href: '/coming-soon' },

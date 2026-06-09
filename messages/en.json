@@ -349,23 +349,60 @@
         "cta": "Back to Core"
     },
     "TeamPage": {
-        "title": "Transparency & Team",
-        "subtitle": "Built on trust, verified by code. We prioritize security and legal compliance.",
-        "legal_title": "Legal Compliance",
-        "legal_genius": "GENIUS Act 2026: Fully compliant with new stablecoin and digital asset regulations.",
-        "legal_utility": "Utility Token: $LXR is designed as a utility token for ecosystem governance and rewards. It is NOT a security.",
-        "legal_disclaimer": "Disclaimer: Crypto assets are volatile. Invest responsibly. No profit guarantees.",
-        "audit_title": "Audits & Contracts",
-        "view_solscan": "View on Solscan",
-        "view_reserves": "View Reserves",
-        "track_burns": "Track Burns",
-        "contributors_title": "Core Contributors",
-        "founder": "Joseph (Founder)",
-        "lead_role": "Lead Developer & Strategy",
-        "ops_lead": "Operations Lead",
-        "ops_role": "Marketing & Partnerships",
-        "comm_manager": "Community Manager",
-        "comm_role": "Socials & Support"
+        "tagline": "The people building Luxor strategy, technology, and community behind the protocol.",
+        "playlist_label": "Team Playlist",
+        "members": [
+            {
+                "id": "roosevelt",
+                "name": "Roosevelt Joseph Flores",
+                "role": "Founder",
+                "headline": "Lead Developer",
+                "initials": "RF",
+                "description": "Architects the Luxor protocol, smart contracts, and long-term product vision across LXR, XLS, and USDX.",
+                "accentFrom": "#1e3a8a",
+                "accentTo": "#3b82f6"
+            },
+            {
+                "id": "ops",
+                "name": "Operations Lead",
+                "role": "Marketing & Partnerships",
+                "headline": "Growth & Ops",
+                "description": "Drives ecosystem partnerships, go-to-market strategy, and coordination between builders and the community.",
+                "initials": "OP",
+                "accentFrom": "#312e81",
+                "accentTo": "#6366f1"
+            },
+            {
+                "id": "community",
+                "name": "Community Manager",
+                "role": "Socials & Support",
+                "headline": "Community",
+                "description": "Keeps the Luxor community connected across channels, events, and day-to-day holder support.",
+                "initials": "CM",
+                "accentFrom": "#1e40af",
+                "accentTo": "#60a5fa"
+            },
+            {
+                "id": "engineering",
+                "name": "Full Stack Developer",
+                "role": "Product Engineering",
+                "headline": "Full stack developer",
+                "description": "Builds production-ready applications with confidence — from the landing experience to internal tools and integrations.",
+                "initials": "FS",
+                "accentFrom": "#0f172a",
+                "accentTo": "#334155"
+            },
+            {
+                "id": "design",
+                "name": "Brand & Design",
+                "role": "Visual Identity",
+                "headline": "Design lead",
+                "description": "Shapes Luxor's visual language, product UI, and the storytelling that connects the protocol to the world.",
+                "initials": "BD",
+                "accentFrom": "#172554",
+                "accentTo": "#2563eb"
+            }
+        ]
     },
     "RoadmapPage": {
         "title": "Roadmap",
@@ -421,6 +458,7 @@
         "security": "Security",
         "onchain": "On-Chain",
         "mega": {
+            "team_desc": "Meet the people behind Luxor.",
             "eco_title_1": "Our Partners",
             "eco_desc_1": "Businesses backing Luxor",
             "eco_title_2": "Real Use Cases",

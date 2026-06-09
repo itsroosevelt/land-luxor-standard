@@ -211,6 +211,15 @@ div.wallet-pill-container button.wallet-adapter-button:not([disabled]):hover {
   fill: #ffffff !important;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Navbar: desktop layout only on mouse/trackpad screens (not touch tablets) */
 .nav-desktop-menu,
 .nav-desktop-actions,

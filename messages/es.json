@@ -349,23 +349,60 @@
         "cta": "Volver al Núcleo"
     },
     "TeamPage": {
-        "title": "Transparencia y Equipo",
-        "subtitle": "Construido sobre la confianza, verificado por código. Priorizamos la seguridad y el cumplimiento legal.",
-        "legal_title": "Cumplimiento Legal",
-        "legal_genius": "Ley GENIUS 2026: Totalmente conforme con las nuevas regulaciones de stablecoins y activos digitales.",
-        "legal_utility": "Token de Utilidad: $LXR está diseñado como un token de utilidad para la gobernanza del ecosistema y recompensas. NO es un valor (security).",
-        "legal_disclaimer": "Descargo de responsabilidad: Los criptoactivos son volátiles. Invierta con responsabilidad. Sin garantías de beneficio.",
-        "audit_title": "Auditorías y Contratos",
-        "view_solscan": "Ver en Solscan",
-        "view_reserves": "Ver Reservas",
-        "track_burns": "Rastrear Quemados",
-        "contributors_title": "Contribuidores Principales",
-        "founder": "Joseph (Fundador)",
-        "lead_role": "Desarrollador Principal y Estrategia",
-        "ops_lead": "Líder de Operaciones",
-        "ops_role": "Marketing y Alianzas",
-        "comm_manager": "Gerente de Comunidad",
-        "comm_role": "Redes Sociales y Soporte"
+        "tagline": "Las personas que construyen Luxor estrategia, tecnología y comunidad detrás del protocolo.",
+        "playlist_label": "Playlist del Equipo",
+        "members": [
+            {
+                "id": "roosevelt",
+                "name": "Roosevelt Joseph Flores",
+                "role": "Fundador",
+                "headline": "Desarrollador Principal",
+                "initials": "RF",
+                "description": "Arquitectura del protocolo Luxor, smart contracts y visión de producto a largo plazo en LXR, XLS y USDX.",
+                "accentFrom": "#1e3a8a",
+                "accentTo": "#3b82f6"
+            },
+            {
+                "id": "ops",
+                "name": "Líder de Operaciones",
+                "role": "Marketing y Alianzas",
+                "headline": "Crecimiento y Ops",
+                "description": "Impulsa alianzas del ecosistema, estrategia de mercado y coordinación entre builders y la comunidad.",
+                "initials": "OP",
+                "accentFrom": "#312e81",
+                "accentTo": "#6366f1"
+            },
+            {
+                "id": "community",
+                "name": "Gerente de Comunidad",
+                "role": "Redes y Soporte",
+                "headline": "Comunidad",
+                "description": "Mantiene conectada a la comunidad Luxor en canales, eventos y soporte diario a los holders.",
+                "initials": "CM",
+                "accentFrom": "#1e40af",
+                "accentTo": "#60a5fa"
+            },
+            {
+                "id": "engineering",
+                "name": "Desarrollador Full Stack",
+                "role": "Ingeniería de Producto",
+                "headline": "Full stack developer",
+                "description": "Construye aplicaciones listas para producción — desde la experiencia web hasta herramientas internas e integraciones.",
+                "initials": "FS",
+                "accentFrom": "#0f172a",
+                "accentTo": "#334155"
+            },
+            {
+                "id": "design",
+                "name": "Marca y Diseño",
+                "role": "Identidad Visual",
+                "headline": "Líder de diseño",
+                "description": "Define el lenguaje visual de Luxor, la UI de producto y la narrativa que conecta el protocolo con el mundo.",
+                "initials": "BD",
+                "accentFrom": "#172554",
+                "accentTo": "#2563eb"
+            }
+        ]
     },
     "RoadmapPage": {
         "title": "Hoja de Ruta",
@@ -421,6 +458,7 @@
         "security": "Seguridad",
         "onchain": "On-Chain",
         "mega": {
+            "team_desc": "Conoce a las personas detrás de Luxor.",
             "eco_title_1": "Nuestros Socios",
             "eco_desc_1": "Empresas que respaldan a Luxor",
             "eco_title_2": "Casos de Uso Reales",
