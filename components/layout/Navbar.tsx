@@ -440,17 +440,17 @@ export default function Navbar() {
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                                            <span className="text-[10px] text-white/40 font-bold uppercase tracking-[0.2em]">LXR Live Stats</span>
+                                            <span className="text-[10px] text-white/40 font-bold uppercase tracking-[0.2em]">{t('mobile_stats.live_stats')}</span>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-0.5">Precio Actual</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-0.5">{t('mobile_stats.current_price')}</p>
                                             <span className="text-xl font-bold text-white">$0.01 USDC</span>
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
                                         <div className="flex items-center justify-between">
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest">Fundraising Progress</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest">{t('mobile_stats.fundraising_progress')}</p>
                                             <p className="text-[10px] text-blue-400 font-medium">{FUNDRAISING_PROGRESS.toFixed(2)}%</p>
                                         </div>
                                         <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
@@ -465,27 +465,27 @@ export default function Navbar() {
 
                                     <div className="grid grid-cols-2 gap-4 text-center">
                                         <div>
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Total Recaudado</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">{t('mobile_stats.total_raised')}</p>
                                             <p className="text-white font-medium">$2,500 USDC</p>
                                         </div>
                                         <div>
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Meta</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">{t('mobile_stats.goal')}</p>
                                             <p className="text-white font-medium">$2,500,000.00 USDC</p>
                                         </div>
                                         <div>
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Tokens Asignados</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">{t('mobile_stats.tokens_assigned')}</p>
                                             <p className="text-white font-medium">2,000,000</p>
                                         </div>
                                         <div>
-                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">Lanzamiento</p>
+                                            <p className="text-[8px] text-white/30 uppercase tracking-widest mb-1">{t('mobile_stats.launch')}</p>
                                             <p className="text-white font-medium">05/01/2027</p>
                                         </div>
                                     </div>
 
                                     <div className="rounded-2xl bg-black/30 border border-white/5 p-3 space-y-2 text-left">
-                                        <p className="text-[8px] text-white/30 uppercase tracking-widest">Billetera Multisig</p>
+                                        <p className="text-[8px] text-white/30 uppercase tracking-widest">{t('mobile_stats.multisig_wallet')}</p>
                                         <p className="text-[10px] text-white/50 leading-relaxed">
-                                            Revisa en vivo la actividad de recaudación en esta billetera multisig.
+                                            {t('mobile_stats.multisig_desc')}
                                         </p>
                                         <div className="flex items-center gap-2">
                                             <a
@@ -500,7 +500,7 @@ export default function Navbar() {
                                                 type="button"
                                                 onClick={copyMultisigWallet}
                                                 className="shrink-0 p-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-white transition-colors"
-                                                aria-label="Copiar billetera multisig"
+                                                aria-label={t('mobile_stats.copy_wallet')}
                                             >
                                                 <Copy size={14} />
                                             </button>
@@ -509,7 +509,7 @@ export default function Navbar() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="shrink-0 p-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-white transition-colors"
-                                                aria-label="Ver en Solscan"
+                                                aria-label={t('mobile_stats.view_solscan')}
                                             >
                                                 <ExternalLink size={14} />
                                             </a>

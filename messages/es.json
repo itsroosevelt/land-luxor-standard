@@ -505,7 +505,20 @@
         "jupiter_desc": "Intercambia LXR.",
         "dex_desc": "Gráficos en tiempo real.",
         "orb_desc": "Holders y Analíticas.",
-        "solscan_desc": "Explorador de Solana."
+        "solscan_desc": "Explorador de Solana.",
+        "mobile_stats": {
+            "live_stats": "Estadísticas LXR en Vivo",
+            "current_price": "Precio Actual",
+            "fundraising_progress": "Progreso de Recaudación",
+            "total_raised": "Total Recaudado",
+            "goal": "Meta",
+            "tokens_assigned": "Tokens Asignados",
+            "launch": "Lanzamiento",
+            "multisig_wallet": "Billetera Multisig",
+            "multisig_desc": "Revisa en vivo la actividad de recaudación en esta billetera multisig.",
+            "copy_wallet": "Copiar billetera multisig",
+            "view_solscan": "Ver en Solscan"
+        }
     },
     "Common": {
         "connectWallet": "Conectar Billetera",

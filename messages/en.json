@@ -505,7 +505,20 @@
         "jupiter_desc": "Swap LXR.",
         "dex_desc": "Real-time charts.",
         "orb_desc": "Holders & Analytics.",
-        "solscan_desc": "Solana Explorer."
+        "solscan_desc": "Solana Explorer.",
+        "mobile_stats": {
+            "live_stats": "LXR Live Stats",
+            "current_price": "Current Price",
+            "fundraising_progress": "Fundraising Progress",
+            "total_raised": "Total Raised",
+            "goal": "Goal",
+            "tokens_assigned": "Tokens Assigned",
+            "launch": "Launch",
+            "multisig_wallet": "Multisig Wallet",
+            "multisig_desc": "Review live fundraising activity on this multisig wallet.",
+            "copy_wallet": "Copy multisig wallet",
+            "view_solscan": "View on Solscan"
+        }
     },
     "Common": {
         "connectWallet": "Connect Wallet",
