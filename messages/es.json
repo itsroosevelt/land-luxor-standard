@@ -814,6 +814,90 @@
             "verify_note": "Verifica siempre que la dirección coincida antes de enviar."
         }
     },
+    "CareersPage": {
+        "open_positions": "Posiciones Abiertas",
+        "filters": "Filtros:",
+        "department": "Departamento",
+        "employee_time": "Tiempo de Empleado",
+        "location": "Ubicación",
+        "location_type": "Modalidad de Trabajo",
+        "all": "Todos",
+        "remote": "Remoto",
+        "onsite": "Presencial",
+        "hybrid": "Híbrido",
+        "us": "United States",
+        "latam": "Latin America",
+        "language": "Idioma",
+        "english": "Inglés",
+        "spanish": "Español",
+        "bilingual": "Bilingüe",
+        "us_latam": "Estados Unidos y Latinoamérica",
+        "full_part_time": "Full-time / Part-time",
+        "dept_blockchain": "Blockchain y Smart Contracts",
+        "dept_ai": "Inteligencia Artificial",
+        "dept_product": "Producto y Fintech",
+        "dept_marketing": "Marketing y Comunidad",
+        "dept_operations": "Operaciones y Legal",
+        "dept_ceo_staff": "Equipo del CEO y Alto Rendimiento",
+        "jobs": {
+            "lead_solana": {
+                "title": "Lead Solana / Rust Developer",
+                "desc": "El arquitecto de nuestros programas. Se encargará de la seguridad de los smart contracts en Anchor, la integración del protocolo RWA (oráculos, colaterales) y la optimización de los fees y el rendimiento de nuestros 3 tokens."
+            },
+            "senior_solana": {
+                "title": "Senior Solana Developer (Web3 & Integraciones)",
+                "desc": "Enfocado en conectar los contratos con el mundo exterior. Experto en construir SDKs, interactuar con RPCs privadas, y manejar librerías como @solana/web3.js o @solana/spl-token con precisión de 9 decimales."
+            },
+            "smart_contract_auditor": {
+                "title": "Auditor de Smart Contracts (Freelance / Agencia Externa)",
+                "desc": "Crucial para el RWA y la Stablecoin. Alguien que audite a fondo el código antes de mover capital institucional o masivo para evitar exploits."
+            },
+            "ai_engineer": {
+                "title": "AI Engineer / LLM Specialist",
+                "desc": "Encargado de la lógica de los agentes autónomos. Experto en frameworks como LangChain, CrewAI o Autogen, fine-tuning de modelos y la arquitectura de toma de decisiones de la IA."
+            },
+            "backend_mlops": {
+                "title": "Backend & MLOps Engineer",
+                "desc": "El programador que conectará la IA con nuestras bases de datos, APIs de pago y servidores seguros. Alguien fuerte en Python o Rust que asegure que el 'cerebro' responda rápido y no se caiga."
+            },
+            "senior_fullstack_payments": {
+                "title": "Senior Full-Stack Developer (Especialista en Pagos)",
+                "desc": "Alguien con experiencia previa en pasarelas tradicionales (Stripe) o cripto (Solana Pay). Su foco será la estabilidad de las transacciones, manejo de webhooks y la eliminación de errores de red (como códigos 403)."
+            },
+            "mobile_wallet": {
+                "title": "Mobile / Wallet Developer",
+                "desc": "Experto en React Native o Flutter con fuertes conocimientos de criptografía local, gestión de llaves privadas (non-custodial) y firmas de transacciones en Solana."
+            },
+            "frontend_uiux_web3": {
+                "title": "Frontend UI/UX Developer (Ecosistema Web3)",
+                "desc": "Diseñador y programador frontend enfocado en que la experiencia de la wallet y la pasarela sea limpia, rápida y a prueba de errores para el usuario común."
+            },
+            "cmo_crypto_marketing": {
+                "title": "Chief Marketing Officer (CMO) o Director de Marketing Crypto",
+                "desc": "Alguien que coordine las tres narrativas (IA, Web3 y RWA) y dirija las fases de preventa y lanzamientos de liquidez."
+            },
+            "creative_director_audiovisual": {
+                "title": "Director Creativo / Productor Audiovisual",
+                "desc": "El encargado de la magia visual. Necesitas a alguien que cree videos cinematográficos, renders 3D para la tecnología/hardware, y todo el material gráfico de alto impacto para redes sociales."
+            },
+            "graphic_motion_designer": {
+                "title": "Diseñador Gráfico & Motion Designer (Web3)",
+                "desc": "Para la identidad visual diaria, memes de alto nivel (clave en Solana), infografías de los RWA y las interfaces de los anuncios."
+            },
+            "community_manager_collabs": {
+                "title": "Community Manager & Collabs Lead (Discord / X)",
+                "desc": "El ecosistema de Solana vive en X (Twitter) y Discord. Necesitas a alguien experto en mantener la comunidad activa, organizar AMAs, y cerrar colaboraciones con otros proyectos o comunidades del ecosistema."
+            },
+            "growth_hacker": {
+                "title": "Growth Hacker / Paid Media Specialist",
+                "desc": "Especialista en pauta digital, SEO y estrategias de guerrilla marketing para atraer liquidez y usuarios tanto a la pasarela de pagos como al token utilitario."
+            },
+            "legal_counsel": {
+                "title": "Legal Counsel (Especialista en RWA y DAOs)",
+                "desc": "El puente entre el código y la ley. Fundamental para la estructura legal de tu DAO y el cumplimiento normativo (compliance) de la tokenización de activos del mundo real (RWA) y la stablecoin."
+            }
+        }
+    },
     "Metadata": {
         "title": "Luxor (LXR) | La Inteligencia del Valor",
         "description": "Luxor ($LXR) es un token de utilidad de nueva generación desplegado en la red Solana, diseñado para ser el motor económico de un ecosistema impulsado por Inteligencia Artificial. Concebido y estructurado meticulosamente a lo largo de 2025, Luxor nace con la misión de fortalecer la economía del Hemisferio Occidental y consolidar a los Estados Unidos como la capital global de los activos digitales."

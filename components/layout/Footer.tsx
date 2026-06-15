@@ -115,11 +115,11 @@ export default function Footer() {
             ]
         },
         {
-            title: "Customer Support",
+            title: "Company",
             links: [
                 { name: "Technical Support", href: 'mailto:services@byluxor.com' },
                 { name: "Help Center (FAQ)", href: '/coming-soon' },
-                { name: "Careers / Vacancies", href: '/coming-soon' },
+                { name: "Careers", href: '/careers' },
                 { name: "Commercial Contact", href: 'mailto:services@byluxor.com' },
                 { name: "Report an Error", href: 'mailto:services@byluxor.com' },
                 { name: 'services@byluxor.com', href: 'mailto:services@byluxor.com' },

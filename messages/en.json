@@ -814,8 +814,92 @@
             "verify_note": "Always verify that the address matches before sending."
         }
     },
+    "CareersPage": {
+        "open_positions": "Open Positions",
+        "filters": "Filters:",
+        "department": "Department",
+        "employee_time": "Employee Time",
+        "location": "Location",
+        "location_type": "Location Type",
+        "all": "All",
+        "remote": "Remote",
+        "onsite": "On-site",
+        "hybrid": "Hybrid",
+        "us": "United States",
+        "latam": "Latin America",
+        "language": "Language",
+        "english": "English",
+        "spanish": "Spanish",
+        "bilingual": "Bilingual",
+        "us_latam": "United States & Latin America",
+        "full_part_time": "Full-time / Part-time",
+        "dept_blockchain": "Blockchain & Smart Contracts",
+        "dept_ai": "Artificial Intelligence",
+        "dept_product": "Product & Fintech",
+        "dept_marketing": "Marketing & Community",
+        "dept_operations": "Operations & Legal",
+        "dept_ceo_staff": "CEO Staff & Performance",
+        "jobs": {
+            "lead_solana": {
+                "title": "Lead Solana / Rust Developer",
+                "desc": "The architect of our programs. Responsible for Anchor smart contract security, RWA protocol integration (oracles, collateralization), and optimization of fees and performance for our 3 tokens."
+            },
+            "senior_solana": {
+                "title": "Senior Solana Developer (Web3 & Integrations)",
+                "desc": "Focused on connecting contracts with the external world. Expert in building SDKs, interacting with private RPCs, and handling libraries like @solana/web3.js or @solana/spl-token with 9-decimal precision."
+            },
+            "smart_contract_auditor": {
+                "title": "Smart Contract Auditor (Freelance / External Agency)",
+                "desc": "Crucial for RWA and Stablecoin. Perform in-depth audits of our code before moving institutional or massive capital to prevent exploits."
+            },
+            "ai_engineer": {
+                "title": "AI Engineer / LLM Specialist",
+                "desc": "Responsible for autonomous agent logic. Expert in frameworks like LangChain, CrewAI, or Autogen, model fine-tuning, and the AI's decision-making architecture."
+            },
+            "backend_mlops": {
+                "title": "Backend & MLOps Engineer",
+                "desc": "The programmer who connects the AI with databases, payment APIs, and secure servers. Strong in Python or Rust to ensure the 'brain' is fast and resilient."
+            },
+            "senior_fullstack_payments": {
+                "title": "Senior Full-Stack Developer (Payments Specialist)",
+                "desc": "Experience with traditional gateways (Stripe) or crypto (Solana Pay). Focus on transaction stability, webhook handling, and resolving network issues like 403 errors."
+            },
+            "mobile_wallet": {
+                "title": "Mobile / Wallet Developer",
+                "desc": "Expert in React Native or Flutter with strong knowledge of local cryptography, non-custodial private key management, and transaction signing on Solana."
+            },
+            "frontend_uiux_web3": {
+                "title": "Frontend UI/UX Developer (Web3 Ecosystem)",
+                "desc": "Frontend developer and designer focused on ensuring a clean, fast, and error-proof wallet and gateway experience for everyday users."
+            },
+            "cmo_crypto_marketing": {
+                "title": "Chief Marketing Officer (CMO) / Crypto Marketing Director",
+                "desc": "Coordinates the three narratives (AI, Web3, and RWA) and directs pre-sale phases and liquidity launches."
+            },
+            "creative_director_audiovisual": {
+                "title": "Creative Director / Audiovisual Producer",
+                "desc": "Responsible for visual magic. Create cinematic videos, 3D renders for technology/hardware, and high-impact graphic material for social media."
+            },
+            "graphic_motion_designer": {
+                "title": "Graphic Designer & Motion Designer (Web3)",
+                "desc": "For daily visual identity, high-level memes (key on Solana), RWA infographics, and ad interfaces."
+            },
+            "community_manager_collabs": {
+                "title": "Community Manager & Collabs Lead (Discord / X)",
+                "desc": "The Solana ecosystem lives on X and Discord. Keep the community active, organize AMAs, and close collaborations with other projects."
+            },
+            "growth_hacker": {
+                "title": "Growth Hacker / Paid Media Specialist",
+                "desc": "Digital ads, SEO, and guerrilla marketing expert to drive liquidity and users to both the payment gateway and the utility token."
+            },
+            "legal_counsel": {
+                "title": "Legal Counsel (RWA & DAOs Specialist)",
+                "desc": "The bridge between code and law. Fundamental for the legal structure of the DAO and compliance for real-world asset tokenization (RWA) and the stablecoin."
+            }
+        }
+    },
     "Metadata": {
         "title": "Luxor (LXR) | The Intelligence of Value",
-        "description": "Luxor ($LXR) is a next-generation utility token deployed on the Solana network, designed to be the economic engine of an ecosystem powered by Artificial Intelligence. Meticulously conceived and structured throughout 2025, Luxor is born with the mission to strengthen the economy of the Western Hemisphere and consolidate the United States as the global capital of digital assets."
+        "description": "Luxor ($LXR) is a next-generation utility token deployed on the Solana network, designed to be the economic engine of an ecosystem powered by Artificial Intelligence. Meticulously conceived and structured throughout 2025, Luxor is born with the mission to strengthen the economy of the Western Hemisphere and consolidate the United United States as the global capital of digital assets."
     }
 }
