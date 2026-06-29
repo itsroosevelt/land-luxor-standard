@@ -41,6 +41,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t('title'),
       description: t('description'),
     },
+    metadataBase: new URL('https://byluxor.com'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: '/en',
+        es: '/es',
+      },
+    },
     robots: {
       index: true,
       follow: true,

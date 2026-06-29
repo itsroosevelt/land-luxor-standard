@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local' });
 
-const locales = ['en', 'es', 'fr', 'pt', 'de', 'zh', 'ja', 'ru'];
+const locales = ['en', 'es'];
 const staticSections = [
     '',
     '/integrations',
