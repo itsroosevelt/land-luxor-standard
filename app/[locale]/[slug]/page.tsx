@@ -1,8 +1,8 @@
 'use client';
 
 import { notFound, useParams } from 'next/navigation';
-import { TeamProfileView } from '@/components/team/TeamProfileView';
-import { isTeamPath, memberIdFromPath, TEAM_LOCALES } from '@/lib/team-slugs';
+import { isTeamPath, TEAM_LOCALES } from '@/lib/team-slugs';
+import ComingSoonPage from '../coming-soon/page';
 
 export default function TeamMemberRoute() {
     const { locale, slug } = useParams<{ locale: string; slug: string }>();
@@ -15,10 +15,7 @@ export default function TeamMemberRoute() {
         notFound();
     }
 
-    const memberId = memberIdFromPath(slug);
-    if (!memberId) {
-        notFound();
-    }
-
-    return <TeamProfileView memberId={memberId} />;
+    return <ComingSoonPage />;
 }
+
+
