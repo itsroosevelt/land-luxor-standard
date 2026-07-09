@@ -14,7 +14,7 @@ interface Particle {
 export function BlueParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
-  const animationFrame = useRef<number>();
+  const animationFrame = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
