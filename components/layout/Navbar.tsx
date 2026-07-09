@@ -190,11 +190,11 @@ export default function Navbar() {
                                     <Image
                                         src="/assets/icons/esfera.png"
                                         alt="Luxor Logo"
-                                        width={44}
-                                        height={44}
+                                        width={36}
+                                        height={36}
                                         className="object-cover rounded-full transition-all duration-300 transform group-hover:scale-105"
                                     />
-                                    <span className="text-xl font-sans text-white tracking-tight font-medium">
+                                    <span className="text-2xl font-sans text-white tracking-tight font-medium">
                                         Luxor
                                     </span>
                                 </Link>
