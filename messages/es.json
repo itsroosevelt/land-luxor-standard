@@ -899,7 +899,55 @@
         }
     },
     "Metadata": {
-        "title": "Luxor (LXR) | La Inteligencia del Valor",
-        "description": "Luxor ($LXR) es un token de utilidad de nueva generación desplegado en la red Solana, diseñado para ser el motor económico de un ecosistema impulsado por Inteligencia Artificial. Concebido y estructurado meticulosamente a lo largo de 2025, Luxor nace con la misión de fortalecer la economía del Hemisferio Occidental y consolidar a los Estados Unidos como la capital global de los activos digitales."
+        "title": "Luxor Intelligence DAO | Ecosistema IA en Solana",
+        "description": "Descubre el ecosistema de Luxor Intelligence DAO en Solana. Explora nuestros productos: Luxor Pay POS, Royalty Wallet, Intelligent Glasses, Token $LXR, Stablecoin $USDX, Roosevelt AI y Excelsior RWA ($XLS).",
+        "luxorPay": {
+            "title": "Luxor Pay - Pagos Descentralizados | Luxor DAO",
+            "description": "Revolucionando los pagos globales con Luxor Pay. Soluciones de pago POS seguras, instantáneas y descentralizadas integradas en la red Solana."
+        },
+        "intelligentGlasses": {
+            "title": "Luxor Intelligent Glasses - Gafas Inteligentes con IA | Luxor DAO",
+            "description": "Explora la próxima generación de hardware portátil con Inteligencia Artificial. Gafas Inteligentes conectadas a Roosevelt AI en Solana."
+        },
+        "stablecoin": {
+            "title": "Stablecoin $USDX - Activo Digital Estable | Luxor DAO",
+            "description": "Estable, segura y descentralizada. La Stablecoin USDX ($USDX) es el principal activo digital respaldado del ecosistema Luxor en Solana."
+        },
+        "excelsior": {
+            "title": "Excelsior RWA ($XLS) - Activos del Mundo Real | Luxor DAO",
+            "description": "Tokenizando el mundo físico. Excelsior Real World Asset ($XLS) conecta activos reales con las finanzas descentralizadas de alta velocidad en Solana."
+        },
+        "luxor": {
+            "title": "Activo de Utilidad Luxor ($LXR) | Luxor DAO",
+            "description": "El motor económico de Luxor. $LXR es el token de utilidad de nueva generación que impulsa servicios de IA y gobernanza en Solana."
+        },
+        "team": {
+            "title": "Nuestro Equipo - Fundadores y Expertos | Luxor DAO",
+            "description": "Conoce al equipo visionario, desarrolladores y asesores que impulsan el ecosistema Luxor Intelligence DAO y la tokenización RWA en Solana."
+        },
+        "roadmap": {
+            "title": "Ruta de Trabajo y Visión | Luxor DAO",
+            "description": "Sigue la evolución de Luxor Intelligence DAO. Explora nuestros hitos, plan de lanzamientos y visión a largo plazo en Solana."
+        },
+        "careers": {
+            "title": "Carreras - Únete a Luxor Intelligence DAO | Luxor DAO",
+            "description": "Construye el futuro de la IA, RWA y los pagos Web3. Descubre vacantes y oportunidades de carrera en Luxor DAO."
+        },
+        "community": {
+            "title": "Comunidad y Ecosistema | Luxor DAO",
+            "description": "Conéctate con la comunidad global de Luxor. Únete a Telegram, Discord y X (Twitter) para enterarte de lo último sobre IA en Solana."
+        },
+        "donate": {
+            "title": "Apoya a Luxor - Donaciones | Luxor DAO",
+            "description": "Apoya el desarrollo de IA de código abierto y tecnologías descentralizadas. Contribuye al ecosistema de Luxor Intelligence DAO."
+        },
+        "privateSale": {
+            "title": "Venta Privada - Acceso Exclusivo | Luxor DAO",
+            "description": "Participa en la venta privada exclusiva de $LXR y $USDX. Únete temprano al ecosistema de inteligencia artificial en Solana."
+        },
+        "presale": {
+            "title": "Preventa - Lanzamiento Público | Luxor DAO",
+            "description": "Obtén acceso anticipado a $LXR. Conoce las fases de preventa pública, tokenomics y cómo participar de forma segura en Solana."
+        }
     }
 }

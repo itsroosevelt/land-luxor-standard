@@ -55,3 +55,4 @@ secrets/
 # But since wallets/ are keys, we should BE CAREFUL.
 # Typically wallets/*.json SHOULD BE IGNORED if they are real keys.
 # The task asked to configure .gitignore (exclude node_modules, .next, .env, secrets)
+brain/
