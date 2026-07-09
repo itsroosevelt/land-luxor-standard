@@ -211,8 +211,8 @@ export default function CareersPage() {
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent font-[var(--font-outfit)] select-none">
                     LUXOR
                 </h1>
-                <p className="text-xs md:text-sm text-gray-400 tracking-[0.3em] uppercase mt-3 font-semibold font-[var(--font-montserrat)]">
-                    the intelligence of value
+                <p className="text-xs md:text-sm text-gray-400 tracking-[0.15em] uppercase mt-3 font-semibold font-[var(--font-montserrat)]">
+                    {activeLocale === 'es' ? 'Conectando usuarios, negocios del mundo real y tecnología web3' : 'Connecting users, real world businesses & web3 technology'}
                 </p>
             </div>
             
