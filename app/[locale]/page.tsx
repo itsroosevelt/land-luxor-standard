@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import dynamic from 'next/dynamic';
 import { Hero } from '@/components/home/Hero';
+import { BlueParticles } from '@/components/home/BlueParticles';
 import { IconMarquee } from '@/components/home/IconMarquee';
 import { InnovationSection } from '@/components/home/InnovationSection';
 import { PhilosophySection } from '@/components/home/PhilosophySection';
@@ -56,6 +57,8 @@ export default async function HomePage() {
         ctaText={t('cta_main')}
         ctaLink="/luxor"
       />
+
+      <BlueParticles />
 
       <IconMarquee />
 

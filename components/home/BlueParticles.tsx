@@ -2,93 +2,73 @@
 
 import { useEffect, useRef } from 'react';
 
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  seed: number;
+}
+
 export function BlueParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particles = useRef<Particle[]>([]);
+  const animationFrame = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resize);
+    resize();
 
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      opacity: number;
-    }> = [];
-
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.3,
-      });
-    }
+    const particleCount = 450;
+    particles.current = Array.from({ length: particleCount }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.2,
+      vy: (Math.random() - 0.5) * 0.2,
+      size: Math.random() * 1.5 + 0.5,
+      seed: Math.random()
+    }));
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
 
-      particles.forEach((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+      particles.current.forEach((p) => {
+        p.x += p.vx + Math.sin(Date.now() * 0.001 + p.seed * 10) * 0.2;
+        p.y += p.vy + Math.cos(Date.now() * 0.001 + p.seed * 10) * 0.2;
 
-        // Bounce off walls
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
 
-        // Wrap around
-        particle.x = (particle.x + canvas.width) % canvas.width;
-        particle.y = (particle.y + canvas.height) % canvas.height;
+        const opacity = 0.1 + p.seed * 0.3;
+        ctx.fillStyle = `rgba(59, 130, 246, ${opacity})`;
 
-        // Draw particle with glow
-        const gradient = ctx.createRadialGradient(
-          particle.x,
-          particle.y,
-          0,
-          particle.x,
-          particle.y,
-          particle.radius * 3
-        );
-        gradient.addColorStop(0, `rgba(59, 130, 246, ${particle.opacity})`);
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-
-        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius * 3, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      animationFrame.current = requestAnimationFrame(animate);
     };
 
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    return () => {
+      window.removeEventListener('resize', resize);
+      if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
     };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 1 }}
-    />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 z-[5] pointer-events-none" />;
 }
