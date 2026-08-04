@@ -42,7 +42,7 @@ div.wallet-pill-container button.wallet-adapter-button {
   color: #ffffff !important;
   font-family: var(--font-sans), sans-serif !important;
   font-size: 13px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   border: none !important;
   border-radius: 9999px !important;
   /* Force pill shape */

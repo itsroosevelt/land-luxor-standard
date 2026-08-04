@@ -73,23 +73,8 @@ export const IconMarquee = () => {
   );
 
   return (
-    <section className="w-full bg-black py-40 overflow-hidden relative">
-      <div className="absolute top-10 md:top-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3">
-        <span className="text-zinc-400 text-xs md:text-sm font-medium tracking-widest uppercase">Contract Address</span>
-        <button 
-          onClick={handleCopy}
-          className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full py-2.5 px-5 md:px-7 backdrop-blur-md transition-all duration-300"
-        >
-          <span className="text-white/80 group-hover:text-white font-mono text-xs md:text-base transition-colors">7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth</span>
-          {copied ? (
-            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
-          ) : (
-            <Copy className="w-4 h-4 md:w-5 md:h-5 text-white/40 group-hover:text-white transition-colors" />
-          )}
-        </button>
-      </div>
-
-      <div className="flex w-full items-center mt-10 md:mt-16">
+    <section className="w-full bg-black py-20 overflow-hidden relative">
+      <div className="flex w-full items-center">
         <motion.div
           key={horizontalDuration}
           className="flex whitespace-nowrap gap-6 md:gap-8 items-center will-change-transform"

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Copy, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
 import React, { useRef, useEffect, useState, Fragment } from 'react';
@@ -17,21 +17,28 @@ interface HeroProps {
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
     const locale = useLocale();
     const badgeText = locale === 'es' ? 'Preventa' : 'Presale';
-    const presaleDetailText = locale === 'es' ? 'Ver Detalles' : 'View Details';
+    const presaleDetailText = locale === 'es' ? 'Detalles' : 'Details';
 
     const bgVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
-    const presaleVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/Video%20Preventa.mp4?alt=media&token=96330534-69e6-47e3-8359-444f9c1f85a5";
+
+    const contractAddress = '7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth';
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyContract = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigator.clipboard.writeText(contractAddress);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [isMounted, setIsMounted] = useState(false);
 
     const sectionRef = useRef<HTMLElement>(null);
-    const presaleCardRef = useRef<HTMLAnchorElement>(null);
     const bgVideoRef = useRef<HTMLVideoElement>(null);
-    const presaleVideoRef = useRef<HTMLVideoElement>(null);
 
     const isSectionInView = useInView(sectionRef, { amount: 0.1 });
-    const isPresaleInView = useInView(presaleCardRef, { amount: 0.3 });
 
     useEffect(() => {
         if (bgVideoRef.current) {
@@ -39,13 +46,6 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
             else bgVideoRef.current.pause();
         }
     }, [isSectionInView]);
-
-    useEffect(() => {
-        if (presaleVideoRef.current) {
-            if (isPresaleInView) presaleVideoRef.current.play().catch(() => { });
-            else presaleVideoRef.current.pause();
-        }
-    }, [isPresaleInView]);
 
     useEffect(() => {
         setIsMounted(true);
@@ -74,19 +74,19 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
     return (
         <section ref={sectionRef} className="relative w-full flex flex-col md:min-h-[105vh] md:justify-end items-start overflow-hidden bg-black">
             {/* 1. Main Background Video Layer */}
-            <div className="relative md:absolute md:top-0 md:left-0 w-full h-[60vh] md:h-[75vh] z-0 overflow-hidden">
+            <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
                 <video
                     ref={bgVideoRef}
                     autoPlay
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover grayscale-[0.2] brightness-75 scale-110 md:scale-100"
+                    className="w-full h-full object-cover grayscale-[0.2] brightness-75 scale-125 md:scale-115 -translate-y-14 md:-translate-y-20"
                     preload="metadata"
                     src={bgVideoUrl}
                 />
                 {/* Subtle fade transition to black */}
-                <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black to-transparent" />
             </div>
 
             {/* 2. Content Layer Container */}
@@ -130,7 +130,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             href={ctaLink}
                             suppressHydrationWarning
                             {...(ctaLink.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                            className="group relative px-8 py-4 md:px-7 md:py-2.5 bg-white text-black hover:bg-blue-600 hover:text-white rounded-full font-bold text-sm md:text-[12px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden shadow-2xl shadow-white/5"
+                            className="group relative px-8 py-4 md:px-7 md:py-2.5 bg-white text-black hover:bg-blue-600 hover:text-white rounded-full font-medium text-sm md:text-[13px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden shadow-2xl shadow-white/5"
                         >
                             <span className="relative z-10">{ctaText}</span>
                             <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -140,7 +140,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         <Link
                             href="/donate"
                             suppressHydrationWarning
-                            className="px-8 py-4 md:px-7 md:py-2.5 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-bold text-sm md:text-[12px] transition-all backdrop-blur-md flex items-center justify-center gap-2"
+                            className="px-8 py-4 md:px-7 md:py-2.5 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-medium text-sm md:text-[13px] transition-all backdrop-blur-md flex items-center justify-center gap-2"
                         >
                             Support Luxor
                         </Link>
@@ -151,38 +151,50 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-                    className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0"
+                    className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0 flex flex-col items-center justify-center text-white p-2"
                 >
+                    {/* Contract Address */}
+                    <div className="mb-4 flex flex-col items-center gap-1.5 z-20">
+                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-medium">Contract Address</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-white/90 font-mono text-[10px] md:text-xs tracking-tight break-all">
+                                {contractAddress}
+                            </span>
+                            <div className="flex items-center gap-1.5 pl-1.5 border-l border-white/15">
+                                <button 
+                                    onClick={handleCopyContract}
+                                    type="button"
+                                    title="Copiar dirección"
+                                    className="p-0.5 text-white/50 hover:text-white transition-colors cursor-pointer"
+                                >
+                                    {copied ? (
+                                        <CheckCircle2 size={14} className="text-green-400" />
+                                    ) : (
+                                        <Copy size={14} />
+                                    )}
+                                </button>
+                                <a
+                                    href="https://explorer.solana.com/address/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth/metadata"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Ver en Solana Explorer"
+                                    className="p-0.5 text-white/50 hover:text-blue-400 transition-colors cursor-pointer"
+                                >
+                                    <ExternalLink size={14} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <Link
-                        ref={presaleCardRef}
                         href="/presale"
-                        className="relative block w-full aspect-video rounded-3xl overflow-hidden border border-white/20 shadow-2xl group cursor-pointer hover:scale-[1.02] hover:shadow-blue-500/30 hover:border-blue-500/50 transition-all duration-300"
+                        className="group cursor-pointer flex flex-col items-center justify-center text-white"
                     >
-                        <video
-                            ref={presaleVideoRef}
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            preload="metadata"
-                            className="absolute inset-0 w-full h-full object-cover"
-                            src={presaleVideoUrl}
-                        />
-
-                        {/* Overlay Filter for legibility */}
-                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] group-hover:bg-blue-900/40 group-hover:backdrop-blur-[2px] transition-all duration-500" />
-
-                        {/* Countdown Information */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20">
-                            {/* Card Status Badge */}
-                            <motion.div
-                                animate={{ scale: [1, 1.05, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                                className="px-4 py-1.5 rounded-full border border-white/20 bg-blue-900/30 backdrop-blur-md mb-4 inline-flex items-center gap-2 group-hover:border-blue-400 transition-colors"
-                            >
-                                <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
-                                <span className="text-[10px] uppercase tracking-widest font-bold text-blue-100">{badgeText}</span>
-                            </motion.div>
+                        {/* Card Status Indicator */}
+                        <div className="mb-4 inline-flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
+                            <span className="text-xs uppercase tracking-widest font-bold text-blue-400">{badgeText}</span>
+                        </div>
 
                             {isMounted ? (
                                 <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
@@ -222,16 +234,13 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
 
                             {/* Additional Info / CTA */}
                             <div className="flex flex-col items-center justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
-                                <div className="flex items-center gap-3 text-[10px] md:text-[11px] uppercase tracking-wider drop-shadow-md">
-                                    <span className="font-medium text-white/90">Pinksale</span>
-                                    <span className="text-white/30">|</span>
-                                    <span className="font-bold text-blue-400">LXR / SOL</span>
+                                <div className="flex items-center text-[10px] md:text-[11px] uppercase tracking-wider drop-shadow-md">
+                                    <span className="font-bold text-blue-400">$LXR/$USDC</span>
                                 </div>
                                 <span className="text-[10px] md:text-[11px] text-blue-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform font-semibold">
                                     {presaleDetailText} <ArrowRight size={12} />
                                 </span>
                             </div>
-                        </div>
                     </Link>
                 </motion.div>
             </div>
