@@ -8,6 +8,8 @@ import { IconMarquee } from '@/components/home/IconMarquee';
 import { InnovationSection } from '@/components/home/InnovationSection';
 import { PhilosophySection } from '@/components/home/PhilosophySection';
 import { ArchitectureSection } from '@/components/home/ArchitectureSection';
+import { OneTokenSection } from '@/components/home/OneTokenSection';
+import { FloatingJoinButton } from '@/components/home/FloatingJoinButton';
 
 import BracketsSectionClient from '@/components/home/BracketsSectionClient';
 
@@ -64,56 +66,59 @@ export default async function HomePage() {
 
       <IconMarquee />
 
-      {/* CTA Buttons — moved from Hero & Navbar */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 py-10 px-6 bg-black">
-        <Link
-          href="/luxor"
-          className="group relative px-8 py-4 bg-white text-black hover:bg-blue-600 hover:text-white rounded-full font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden shadow-2xl shadow-white/5"
-        >
-          <span className="relative z-10">{(await getTranslations('HomePage'))('cta_main')}</span>
-          <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-          <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-        </Link>
-        
-        {/* Private Sale Button moved from Navbar */}
-        <Link
-            href="/private-sale"
-            className="flex items-center bg-white/5 border border-white/10 rounded-full h-14 hover:bg-white/10 hover:border-white/20 transition-all group overflow-hidden"
-        >
-            <div className="flex items-center gap-3 px-6 h-full">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs text-white/40 font-medium tracking-widest uppercase">LXR</span>
-                <span className="text-sm text-white font-sans font-medium">$0.01 USDC</span>
-            </div>
-            <div className="bg-blue-800 group-hover:bg-blue-900 text-white px-8 h-full flex items-center justify-center text-sm font-sans font-medium border-l border-white/10 transition-colors">
-                Private Sale
-            </div>
-        </Link>
+      {/* Dedicated CTA Section */}
+      <section className="relative w-full flex flex-col justify-center py-32 md:py-48 px-6 bg-transparent z-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Link
+            href="/luxor"
+            className="group px-8 h-12 border border-white/20 hover:border-white/40 text-white rounded-full font-medium text-base transition-all duration-300 flex items-center justify-center"
+          >
+            <span>{(await getTranslations('HomePage'))('cta_main')}</span>
+          </Link>
+          
+          <Link
+              href="/private-sale"
+              className="flex items-center justify-center px-8 h-12 bg-white hover:bg-gray-100 rounded-full transition-all text-base text-black font-bold gap-3 shadow-xl shadow-white/10"
+          >
+              <span>$0.01 USDC</span>
+              <span>JOIN NOW</span>
+          </Link>
 
-        <Link
-          href="/donate"
-          className="px-8 py-4 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-medium text-sm transition-all backdrop-blur-md flex items-center justify-center gap-2 h-14"
-        >
-          Support Luxor
-        </Link>
-      </div>
+          <Link
+            href="/donate"
+            className="px-8 h-12 border border-white/20 hover:border-white/40 text-blue-400 rounded-full font-medium text-base transition-all flex items-center justify-center"
+          >
+            Donate
+          </Link>
+        </div>
+      </section>
 
       <InnovationSection />
+      
+      {/* Spacer Container */}
+      <div className="w-full h-16 md:h-32 bg-black"></div>
+      
       <PhilosophySection />
-      <ArchitectureSection />
+      <FloatingJoinButton />
 
+      {/* Spacer Container */}
+      <div className="w-full h-16 md:h-32 bg-black"></div>
+
+      <ArchitectureSection />
+      <OneTokenSection />
+      
       <BracketsSectionClient />
+      <FloatingJoinButton />
 
       <JoinSection />
-
       <ShowcaseSection />
+      <FloatingJoinButton />
 
       <PillarsSection />
-
       <GiantsSection />
+      <FloatingJoinButton />
 
       <CTASection />
-
       <ReviewsSection />
     </div>
   );

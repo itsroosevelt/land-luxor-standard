@@ -2,7 +2,7 @@
     "HomePage": {
         "title": "Luxor a Global\nFinancial Utility Token",
         "subtitle": "A utility token designed to power access, participation, and transactions across a global financial ecosystem.",
-        "cta_main": "Enter the Vault",
+        "cta_main": "Tokenomics",
         "cta_secondary": "Read the Whitepaper",
         "features": {
             "reserve": {
@@ -36,65 +36,72 @@
             }
         },
         "eyebrow": "",
+        "slogan": "Luxor · One Token · One Ecosystem · A future for all",
         "innovation": {
             "title": "What exactly is Luxor?",
-            "subtitle": "Luxor (LXR) is the native utility token of the Luxor ecosystem. It's not a passive asset; it's an active tool designed for those who build, entrepreneur, and consume in the new digital economy.",
-            "desc": "By using LXR, you don't just hold an asset on Solana; you gain superpowers within our network:",
-            "items": [
-                {
-                    "title": "Exclusive Discounts",
-                    "desc": "Pay for business and personal administration services with direct benefits."
-                },
-                {
-                    "title": "Access to Experiences",
-                    "desc": "Your LXR balance is your ticket to events, advanced tools, and premium ecosystem features."
-                },
-                {
-                    "title": "Savings on Consumption",
-                    "desc": "Get perks at partner merchants, from coffee shops to technology, through our payment gateway."
-                },
-                {
-                    "title": "Active Governance",
-                    "desc": "Participate in the development of new features. Your voice helps decide where the engine grows."
-                }
-            ],
-            "btn": "Watch the movie"
+            "p1": "Luxor (LXR) is a utility token that functions as the access key to the Luxor Ecosystem.",
+            "p2": "The ecosystem brings together applications, services, and tools designed to help individuals, entrepreneurs, businesses, and enterprises access a new digital economy with more efficient and accessible products and services.",
+            "p3": "LXR connects the user with the different solutions in the ecosystem, including Royalty, our multichain decentralized neobank; USDX, our stablecoin; artificial intelligence tools; corporate services; payment and digital asset infrastructure; and future RWA solutions."
         },
         "philosophy": {
-            "title": "Our Philosophy: The Hemisphere of Abundance",
-            "subtitle": "Born in Salt Lake City, Luxor aligns with the innovation values of the western tech corridor. We believe abundance is not awaited, it is created.",
+            "title": "What is Luxor used for?",
+            "subtitle": "LXR allows you to access and use the different applications and services of the Luxor Ecosystem.",
+            "intro": "With Luxor you can:",
             "items": [
                 {
-                    "title": "Borderless",
-                    "desc": "A tool for the entrepreneur in the US, the professional in Latin America, and anyone in the Americas seeking to thrive."
+                    "title": "",
+                    "desc": "Access ecosystem products and services at more efficient prices."
                 },
                 {
-                    "title": "Backing and Stability",
-                    "desc": "Built on Solana's ultra-fast infrastructure, Luxor integrates digital dollar efficiency so the global economy reaches every corner."
+                    "title": "",
+                    "desc": "Use Royalty, our multichain decentralized neobank and its wallet."
                 },
                 {
-                    "title": "For All Generations",
-                    "desc": "From digital natives to those looking to modernize centuries-old businesses. Luxor is easy, accessible, and universal."
+                    "title": "",
+                    "desc": "Access USDX, our stablecoin designed to offer greater stability within the digital economy."
+                },
+                {
+                    "title": "",
+                    "desc": "Use artificial intelligence tools for personal and business use."
+                },
+                {
+                    "title": "",
+                    "desc": "Create, manage, and scale projects and businesses through our digital tools."
+                },
+                {
+                    "title": "",
+                    "desc": "Access our payment infrastructure and create digital assets representing projects or companies."
+                },
+                {
+                    "title": "",
+                    "desc": "Participate in future Real World Asset (RWA) opportunities within the ecosystem."
+                },
+                {
+                    "title": "",
+                    "desc": "Use LXR as the utility asset that connects the different Luxor applications and services."
                 }
-            ]
+            ],
+            "outro": "In short: LXR is the token that gives you access to the ecosystem and its various utilities."
         },
         "architecture": {
-            "title": "Functional Architecture",
-            "subtitle": "Instead of highlighting scarcity, we highlight predictability for users and merchants.",
+            "title": "How to acquire Luxor?",
+            "subtitle": "Luxor can be acquired from any wallet that supports Luxor, is compatible with the Solana network, or any blockchain where the token is deployed.",
+            "intro": "To get LXR:",
             "items": [
                 {
-                    "title": "Defined Network Capacity",
-                    "desc": "We have a fixed volume of units to ensure the ecosystem always has the necessary fuel to operate without unexpected inflation."
+                    "title": "1. Create or use a Solana-compatible wallet.",
+                    "desc": "You can use a wallet that allows you to store and operate with SPL tokens."
                 },
                 {
-                    "title": "Programmed Autonomy",
-                    "desc": "LXR operates under open-source rules on Solana. No central entity can change the rules of use, giving you complete security."
+                    "title": "2. Acquire LXR.",
+                    "desc": "Buy or exchange LXR using a compatible platform or market. Some of the wallets where you will always find it and can download on any device are Phantom or Royalty."
                 },
                 {
-                    "title": "Circular Economy",
-                    "desc": "100% of revenues are used to strengthen the technical infrastructure and ensure tools remain fast and affordable."
+                    "title": "3. Connect your wallet to the Luxor Ecosystem.",
+                    "desc": "Once you have LXR, you can use it to access the applications, products, and services available within the ecosystem."
                 }
-            ]
+            ],
+            "outro": "LXR — One token. One ecosystem. A new digital economy."
         },
         "vital": {
             "title": "Why is it vital to do this now?",
@@ -899,7 +906,7 @@
         }
     },
     "Metadata": {
-        "title": "Luxor (LXR) Utility Asset",
+        "title": "Luxor Utility Asset | $LXR",
         "description": "Connecting users, real world businesses & web3 technology. Discover the Luxor Intelligence DAO ecosystem on Solana: Luxor Pay POS, Royalty Wallet, Intelligent Glasses, $LXR, $USDX, Roosevelt AI, and Excelsior RWA ($XLS).",
         "luxorPay": {
             "title": "Luxor Pay - Decentralized Payments | Luxor DAO",

@@ -17,7 +17,7 @@ interface HeroProps {
 export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) => {
     const locale = useLocale();
     const badgeText = locale === 'es' ? 'Preventa' : 'Presale';
-    const presaleDetailText = locale === 'es' ? 'Ver detalles' : 'View details';
+    const presaleDetailText = locale === 'es' ? 'Leer el anuncio' : 'Read the announcement';
 
     const bgVideoUrl = "https://firebasestorage.googleapis.com/v0/b/udreamms-platform-1.firebasestorage.app/o/New%20Video%20Luxor.mp4?alt=media&token=a5cd5a16-be9f-43df-bd1e-e702012fa88d";
 
@@ -93,7 +93,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full px-6 pb-16 pt-32 md:pb-24 md:px-16 lg:px-24 flex flex-col lg:flex-row items-end justify-between gap-16 lg:gap-8 lg:pb-32">
+            <div className="relative z-10 w-full px-8 pb-16 pt-32 md:pb-24 md:px-20 lg:px-20 flex flex-col lg:flex-row items-end justify-between gap-16 lg:gap-8 lg:pb-32">
 
                 {/* LEFT: Identity Block */}
                 <motion.div
@@ -166,8 +166,8 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                             </div>
 
                             {/* Detalles CTA */}
-                            <span className="flex items-center gap-1 text-xs text-blue-400 font-semibold mt-2 group-hover:gap-2 transition-all">
-                                {presaleDetailText} <ArrowRight size={13} />
+                            <span className="flex items-center text-sm text-white font-semibold mt-2 transition-all">
+                                {presaleDetailText}
                             </span>
 
                         </div>
