@@ -1,7 +1,7 @@
 {
     "HomePage": {
-        "title": "Welcome to the\nLuxor Economy",
-        "subtitle": "$LXR is the utility token that serves as the engine within the Luxor ecosystem, designed to orchestrate liquidity and power every service within our circular economy.",
+        "title": "Luxor a Global\nFinancial Utility Token",
+        "subtitle": "A utility token designed to power access, participation, and transactions across a global financial ecosystem.",
         "cta_main": "Enter the Vault",
         "cta_secondary": "Read the Whitepaper",
         "features": {
@@ -35,7 +35,7 @@
                 "personal_sub": "Direct liquidity"
             }
         },
-        "eyebrow": "ECOSYSTEM ON SOLANA",
+        "eyebrow": "",
         "innovation": {
             "title": "What exactly is Luxor?",
             "subtitle": "Luxor (LXR) is the native utility token of the Luxor ecosystem. It's not a passive asset; it's an active tool designed for those who build, entrepreneur, and consume in the new digital economy.",
@@ -899,7 +899,7 @@
         }
     },
     "Metadata": {
-        "title": "Luxor Intelligence DAO | Solana AI Ecosystem",
+        "title": "Luxor (LXR) Utility Asset",
         "description": "Connecting users, real world businesses & web3 technology. Discover the Luxor Intelligence DAO ecosystem on Solana: Luxor Pay POS, Royalty Wallet, Intelligent Glasses, $LXR, $USDX, Roosevelt AI, and Excelsior RWA ($XLS).",
         "luxorPay": {
             "title": "Luxor Pay - Decentralized Payments | Luxor DAO",

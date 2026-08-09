@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import {
     Menu, X, Send, BarChart2, Disc,
     ChevronDown, ShieldCheck, PieChart,
-    Lock, Flame, Copy, ExternalLink,
+    Lock, Flame, Copy, CheckCircle2, ExternalLink,
     Users, Briefcase, Info, Map,
     Zap, Vote, Search, Globe,
     FileText, Layers,
@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import LanguageSwitcher from '../features/LanguageSwitcher';
+
 import { getSocialLinks } from '@/lib/social-links';
 import dynamic from 'next/dynamic';
 
@@ -40,6 +40,14 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMega, setActiveMega] = useState<string | null>(null);
+    const [socialMenuOpen, setSocialMenuOpen] = useState(false);
+    const [contractCopied, setContractCopied] = useState(false);
+    const CONTRACT_ADDRESS = '7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth';
+    const handleCopyContract = () => {
+        navigator.clipboard.writeText(CONTRACT_ADDRESS);
+        setContractCopied(true);
+        setTimeout(() => setContractCopied(false), 2000);
+    };
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
@@ -175,14 +183,11 @@ export default function Navbar() {
         <>
             <nav
                 onMouseLeave={handleMouseLeave}
-                className={`fixed top-0 left-0 right-0 w-full z-[65] transition-all duration-500 ${isScrolled || mobileMenuOpen
-                    ? 'bg-black/90 backdrop-blur-lg border-b border-white/10'
-                    : 'bg-transparent border-none'
-                    }`}
+                className="fixed top-0 left-0 right-0 w-full z-[65] bg-black transition-all duration-500"
             >
                 <div className="w-full px-4 sm:px-6 lg:px-12">
                     <div className="flex items-center justify-between h-16">
-                        {/* Left: Logo & Menu Container */}
+                        {/* Left: Logo Container */}
                         <div className="flex items-center gap-10">
                             {/* Logo */}
                             <div className="flex-shrink-0">
@@ -190,106 +195,95 @@ export default function Navbar() {
                                     <Image
                                         src="/assets/icons/esfera.png"
                                         alt="Luxor Logo"
-                                        width={46}
-                                        height={46}
+                                        width={32}
+                                        height={32}
                                         className="object-cover rounded-full transition-all duration-300 transform group-hover:scale-105"
                                     />
-                                    <span className="text-2xl font-sans text-white tracking-tight font-medium">
-                                        Luxor
+                                    <span className="text-2xl font-sans text-white tracking-widest font-medium uppercase">
+                                        LUXOR
                                     </span>
                                 </Link>
-                            </div>
-
-                            {/* Desktop Menu — mouse/trackpad screens only */}
-                            <div className="nav-desktop-menu">
-                                <div className="flex items-center space-x-1">
-                                    {[
-                                        { id: 'project', label: t('project') },
-                                        { id: 'ecosystem', label: t('ecosystem') },
-                                        { id: 'tokenomics', label: t('tokenomics') },
-                                        { id: 'utility', label: t('utility') },
-                                        { id: 'business', label: t('business') },
-                                        { id: 'security', label: t('security') },
-                                        { id: 'onchain', label: t('onchain') },
-                                    ].map((item) => (
-                                        <div
-                                            key={item.id}
-                                            className="relative"
-                                            onMouseEnter={() => handleMouseEnter(item.id)}
-                                        >
-                                            <button
-                                                suppressHydrationWarning
-                                                className={`flex items-center gap-1.5 text-[13px] font-sans px-3 py-2 rounded-full transition-all ${activeMega === item.id ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white hover:bg-white/5'}`}>
-                                                {item.label}
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
                             </div>
                         </div>
 
                         {/* Right: Actions — desktop only on mouse/trackpad screens */}
-                        <div className="nav-desktop-actions items-center gap-8">
+                        <div className="nav-desktop-actions flex items-center gap-8">
                             {/* Group 1: Social Media */}
-                            <div className="flex items-center gap-5 text-white/40">
-                                <a href="https://x.com/luxor_lxr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                    </svg>
-                                </a>
-                                <a href="https://t.me/+G4yvWM535vE2MjIx" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                                    <Send size={15} />
-                                </a>
-                                <a href="https://chat.whatsapp.com/E7h06veJau620m8yxyYSS6" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="WhatsApp">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                                    </svg>
-                                </a>
-                                <a href="https://discord.gg/pFgcmV45yn" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.862-1.295 1.196-1.995a.076.076 0 0 0-.041-.105 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.420 0 1.333-.946 2.418-2.157 2.418z" />
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/admluxorsys/luxor" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="GitHub">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Constitution">
-                                    <FileText size={16} />
-                                </a>
-                                <a href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Phantom Token">
-                                    <Layers size={16} />
-                                </a>
-                                <a href="https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Solscan Explorer">
-                                    <Search size={16} />
+                            {/* Contract Address */}
+                            <div className="hidden xl:flex items-center gap-2 text-white mr-2">
+                                <span className="text-xs font-mono tracking-tight">
+                                    {CONTRACT_ADDRESS.slice(0, 6)}…{CONTRACT_ADDRESS.slice(-6)}
+                                </span>
+                                <button
+                                    onClick={handleCopyContract}
+                                    suppressHydrationWarning
+                                    title="Copy contract address"
+                                    className="text-white/60 hover:text-white transition-colors"
+                                >
+                                    {contractCopied
+                                        ? <CheckCircle2 size={13} className="text-green-400" />
+                                        : <Copy size={13} />
+                                    }
+                                </button>
+                                <a
+                                    href="https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="View on Solscan"
+                                    className="text-white/60 hover:text-blue-400 transition-colors"
+                                >
+                                    <ExternalLink size={13} />
                                 </a>
                             </div>
+
+                          {/* Group 1: Social Media — hamburger toggle that expands horizontally */}
+                          <div className="flex items-center gap-3 text-white/40">
+                            <AnimatePresence>
+                              {socialMenuOpen && (
+                                <motion.div
+                                  initial={{ opacity: 0, width: 0 }}
+                                  animate={{ opacity: 1, width: 'auto' }}
+                                  exit={{ opacity: 0, width: 0 }}
+                                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                                  className="flex items-center gap-3 overflow-hidden"
+                                >
+                                  <a href="https://x.com/luxor_lxr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="X (Twitter)">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                  </a>
+                                  <a href="https://t.me/+G4yvWM535vE2MjIx" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Telegram"><Send size={15} /></a>
+                                  <a href="https://chat.whatsapp.com/E7h06veJau620m8yxyYSS6" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="WhatsApp">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                  </a>
+                                  <a href="https://discord.gg/pFgcmV45yn" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Discord">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.862-1.295 1.196-1.995a.076.076 0 0 0-.041-.105 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.196.373.291a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                  </a>
+                                  <a href="https://github.com/admluxorsys/luxor" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="GitHub">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                                  </a>
+                                  <a href="https://github.com/admluxorsys/luxor/blob/main/Whitepaper.md" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Whitepaper"><FileText size={15} /></a>
+                                  <a href="https://phantom.app/tokens/solana/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Phantom"><Layers size={15} /></a>
+                                  <a href="https://solscan.io/token/7Qm6qUCXGZfGBYYFzq2kTbwTDah5r3d9DcPJHRT8Wdth" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Solscan"><Search size={15} /></a>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                            <button
+                              onClick={() => setSocialMenuOpen(!socialMenuOpen)}
+                              className="flex items-center justify-center w-8 h-8 hover:text-white transition-all"
+                              title="Social links"
+                              aria-label="Social links"
+                            >
+                              <Menu size={13} />
+                            </button>
+                          </div>
+
+
 
                             <div className="h-6 w-[1px] bg-white/10" />
 
                             {/* Group 2: Functional Actions */}
                             <div className="flex items-center gap-4">
-                                <LanguageSwitcher />
+
                                 <div className="flex items-center gap-2">
-                                    {/* Combined Price + Buy Button */}
-                                    <Link
-                                        href="/private-sale"
-                                        className="flex items-center bg-white/5 border border-white/10 rounded-full h-9 hover:bg-white/10 hover:border-white/20 transition-all group overflow-hidden"
-                                    >
-                                        <div className="flex items-center gap-2 px-4 h-full">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                                            <span className="text-[10px] text-white/40 font-medium tracking-widest uppercase">LXR</span>
-                                            <span className="text-xs text-white font-sans font-medium">$0.01 USDC</span>
-                                        </div>
-                                        <div className="bg-blue-800 group-hover:bg-blue-900 text-white px-5 h-full flex items-center justify-center text-xs font-sans font-medium border-l border-white/10 transition-colors">
-                                            Private Sale
-                                        </div>
-                                    </Link>
-
-
-
-
                                     <div className="h-9 wallet-pill-container">
                                         <WalletMultiButton>Connect</WalletMultiButton>
                                     </div>
@@ -562,96 +556,12 @@ export default function Navbar() {
                                         </div>
                                         <div className="flex flex-col items-start sm:items-end gap-1 px-2 shrink-0">
                                             <span className="text-[9px] text-white/20 uppercase font-bold tracking-widest">Region</span>
-                                            <LanguageSwitcher />
+
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Main Links - Accordion Style - 2 columns on tablets */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 pt-10 border-t border-white/5">
-                                    {[
-                                        { label: t('home'), href: '/', id: 'home' },
-                                        { label: t('project'), href: '#', id: 'project' },
-                                        { label: t('ecosystem'), href: '#', id: 'ecosystem' },
-                                        { label: t('tokenomics'), href: '#', id: 'tokenomics' },
-                                        { label: t('utility'), href: '#', id: 'utility' },
-                                        { label: t('business'), href: '#', id: 'business' },
-                                        { label: t('security'), href: '#', id: 'security' },
-                                        { label: t('onchain'), href: '#', id: 'onchain' },
-                                    ].map((link, i) => {
-                                        const isExpanded = activeMega === link.id;
-                                        const subItems = megaMenus[link.id as keyof typeof megaMenus];
 
-                                        return (
-                                            <motion.div
-                                                key={link.id}
-                                                initial={{ opacity: 0, x: -20 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.4 + i * 0.05 }}
-                                                className="flex flex-col"
-                                            >
-                                                <button
-                                                    onClick={() => {
-                                                        if (link.id === 'home') {
-                                                            setMobileMenuOpen(false);
-                                                            return;
-                                                        }
-                                                        setActiveMega(isExpanded ? null : link.id);
-                                                    }}
-                                                    className="flex items-center justify-between text-4xl font-normal text-white hover:text-blue-500 transition-colors tracking-tighter py-2"
-                                                >
-                                                    <span>{link.label}</span>
-                                                    {subItems && (
-                                                        <motion.span
-                                                            animate={{ rotate: isExpanded ? 180 : 0 }}
-                                                            className="text-white/20"
-                                                        >
-                                                            <ChevronDown size={24} />
-                                                        </motion.span>
-                                                    )}
-                                                </button>
-
-                                                {/* Submenu Content */}
-                                                <AnimatePresence>
-                                                    {isExpanded && subItems && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: 'auto', opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            className="overflow-hidden flex flex-col gap-4 pl-4 border-l border-white/5 mt-2"
-                                                        >
-                                                            {subItems.map((sub, sIdx) => (
-                                                                sub.onClick ? (
-                                                                    <button
-                                                                        key={sIdx}
-                                                                        onClick={() => {
-                                                                            sub.onClick?.();
-                                                                            setMobileMenuOpen(false);
-                                                                        }}
-                                                                        className="text-left text-lg text-white/50 hover:text-white transition-colors py-1 flex items-center gap-3"
-                                                                    >
-                                                                        <sub.icon size={16} className="text-blue-500" />
-                                                                        {sub.title}
-                                                                    </button>
-                                                                ) : (
-                                                                    <Link
-                                                                        key={sIdx}
-                                                                        href={sub.href as any}
-                                                                        onClick={() => setMobileMenuOpen(false)}
-                                                                        className="text-lg text-white/50 hover:text-white transition-colors py-1 flex items-center gap-3"
-                                                                    >
-                                                                        <sub.icon size={16} className="text-blue-500" />
-                                                                        {sub.title}
-                                                                    </Link>
-                                                                )
-                                                            ))}
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </motion.div>
-                                        );
-                                    })}
-                                </div>
                             </div>
 
                             {/* Footer in Menu */}

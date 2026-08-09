@@ -35,10 +35,7 @@ body {
 /* Solana Wallet Button Overrides - Forced Specificity and Color */
 div.wallet-pill-container .wallet-adapter-button,
 div.wallet-pill-container button.wallet-adapter-button {
-  background-color: #512da8 !important;
-  /* Phantom Purple */
-  background: #512da8 !important;
-  /* Dual background property for safety */
+  background: linear-gradient(to right, #2563eb, #1e3a8a) !important; /* Darker blue */
   color: #ffffff !important;
   font-family: var(--font-sans), sans-serif !important;
   font-size: 13px !important;
@@ -46,12 +43,12 @@ div.wallet-pill-container button.wallet-adapter-button {
   border: none !important;
   border-radius: 9999px !important;
   /* Force pill shape */
-  height: 38px !important;
-  padding: 0 24px !important;
+  height: 32px !important; /* Thinner */
+  padding: 0 40px !important; /* Wider */
   transition: all 0.3s ease !important;
   text-transform: none !important;
   line-height: normal !important;
-  box-shadow: 0 4px 14px 0 rgba(81, 45, 168, 0.39) !important;
+  box-shadow: 0 4px 14px 0 rgba(30, 58, 138, 0.4) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -59,10 +56,9 @@ div.wallet-pill-container button.wallet-adapter-button {
 
 div.wallet-pill-container .wallet-adapter-button:not([disabled]):hover,
 div.wallet-pill-container button.wallet-adapter-button:not([disabled]):hover {
-  background-color: #613bbd !important;
-  background: #613bbd !important;
+  background: linear-gradient(to right, #1d4ed8, #172554) !important;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(81, 45, 168, 0.5) !important;
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.6) !important;
 }
 
 

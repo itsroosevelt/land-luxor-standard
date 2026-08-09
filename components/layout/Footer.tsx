@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
 import { Globe, Heart } from 'lucide-react';
+import LanguageSwitcher from '../features/LanguageSwitcher';
 import { getSocialLinks } from '@/lib/social-links';
 
 export default function Footer() {
@@ -304,26 +305,7 @@ export default function Footer() {
                         </span>
                     </div>
 
-                    {/* Language/Location Hint */}
-                    <div className="flex items-center gap-2 text-xs font-sans text-white/40">
-                        <Globe size={14} />
-                        <span>{
-                            (() => {
-                                const locale = useLocale();
-                                const labels: Record<string, string> = {
-                                    en: 'English (US)',
-                                    es: 'Español (Latinoamérica)',
-                                    fr: 'Français',
-                                    pt: 'Português',
-                                    de: 'Deutsch',
-                                    zh: '中文',
-                                    ja: '日本語',
-                                    ru: 'Русский'
-                                };
-                                return labels[locale] || 'English (US)';
-                            })()
-                        }</span>
-                    </div>
+                    <LanguageSwitcher />
                 </div>
             </div>
         </footer>
