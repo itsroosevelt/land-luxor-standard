@@ -108,7 +108,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         </span>
                     )}
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white mb-5 tracking-tight leading-[1.1] font-sans whitespace-pre-line">
                         {title.split('Luxor').map((part, i, arr) => (
                             <Fragment key={i}>
                                 {part}
@@ -119,7 +119,7 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                         ))}
                     </h1>
 
-                    <p className="text-base md:text-lg lg:text-[19px] text-white/60 mb-8 max-w-xl leading-relaxed font-sans font-light">
+                    <p className="text-xs md:text-sm lg:text-[15px] text-white/60 mb-8 max-w-xl leading-relaxed font-sans font-light text-justify">
                         {subtitle}
                     </p>
 
@@ -129,49 +129,87 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                    className="w-full max-w-xs lg:max-w-sm shrink-0 lg:mb-12"
+                    transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+                    className="w-full max-w-sm lg:max-w-md mt-10 lg:mt-0 flex flex-col items-center justify-center text-white p-2"
                 >
-                    <Link href="/presale" className="group block">
-                        <div className="flex flex-col items-center gap-1">
+                    <div className="group flex flex-col items-center justify-center text-white">
 
-                            {/* Badge — centered above countdown */}
-                            <div className="flex items-center gap-2 justify-center mb-1">
-                                <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
-                                <span className="text-xs uppercase tracking-widest font-bold text-blue-400">{badgeText}</span>
-                                <span className="text-[10px] text-white/30 uppercase tracking-wider">· Nov – Dec 2026</span>
-                            </div>
-
-                            {/* Countdown — bigger, centered */}
                             {isMounted ? (
-                                <div className="flex items-center justify-center gap-4">
-                                    <CountdownUnit value={timeLeft.days} label="Days" />
-                                    <span className="text-4xl lg:text-5xl text-white/20 font-light mb-5">:</span>
-                                    <CountdownUnit value={timeLeft.hours} label="Hours" />
-                                    <span className="text-4xl lg:text-5xl text-white/20 font-light mb-5">:</span>
-                                    <CountdownUnit value={timeLeft.minutes} label="Mins" />
-                                    <span className="text-4xl lg:text-5xl text-white/20 font-light mb-5">:</span>
-                                    <CountdownUnit value={timeLeft.seconds} label="Secs" />
+                                <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
+                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Days</span>
+                                    </div>
+                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
+                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Hours</span>
+                                    </div>
+                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
+                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Mins</span>
+                                    </div>
+                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
+                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Secs</span>
+                                    </div>
                                 </div>
                             ) : (
-                                <div className="h-14 flex items-center justify-center">
-                                    <div className="w-32 h-10 bg-white/5 rounded animate-pulse" />
+                                <div className="flex items-center gap-4 opacity-0">
+                                    {/* Placeholder */}
+                                    <div className="flex flex-col items-center min-w-[60px]">
+                                        <span className="text-5xl lg:text-7xl font-bold font-sans tracking-tighter">0</span>
+                                    </div>
                                 </div>
                             )}
 
-                            {/* Price */}
-                            <div className="flex items-center gap-1.5 mt-2">
-                                <span className="text-white font-medium text-base font-sans">$0.05</span>
-                                <span className="text-[10px] text-white/40 font-medium">USDC</span>
+                            <Link
+                                href="/presale"
+                                className="mt-4 flex items-center justify-center gap-2 sm:gap-3 whitespace-nowrap opacity-90 transition-opacity hover:opacity-100"
+                            >
+                                <span className="inline-flex items-center gap-1.5 text-[9px] md:text-[10px] uppercase tracking-wider font-bold text-blue-400">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)] animate-pulse" />
+                                    {badgeText}
+                                </span>
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-wider font-bold text-white/80">
+                                    $LXR
+                                </span>
+                                <span className="text-[8px] md:text-[9px] text-white/50 uppercase tracking-wider font-medium">
+                                    Nov 1 — Dec 31, 2026
+                                </span>
+                            </Link>
+                            <div className="mt-3 flex items-center justify-center gap-2">
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/50 font-medium">CA</span>
+                                <span className="text-white/90 font-mono text-[9px] md:text-[10px] tracking-tight break-all">
+                                    {contractAddress}
+                                </span>
+                                <div className="flex flex-shrink-0 items-center gap-1.5 pl-1.5 border-l border-white/15">
+                                    <button
+                                        onClick={handleCopyContract}
+                                        type="button"
+                                        title="Copiar dirección"
+                                        className="p-0.5 text-white/50 hover:text-white transition-colors cursor-pointer"
+                                    >
+                                        {copied ? (
+                                            <CheckCircle2 size={14} className="text-green-400" />
+                                        ) : (
+                                            <Copy size={14} />
+                                        )}
+                                    </button>
+                                    <a
+                                        href="https://luxorstandard.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Visitar Luxor Standard"
+                                        className="p-0.5 text-white/50 hover:text-blue-400 transition-colors cursor-pointer"
+                                    >
+                                        <ExternalLink size={14} />
+                                    </a>
+                                </div>
                             </div>
-
-                            {/* Detalles CTA */}
-                            <span className="flex items-center text-sm text-white font-semibold mt-2 transition-all">
-                                {presaleDetailText}
-                            </span>
-
-                        </div>
-                    </Link>
+                    </div>
                 </motion.div>
 
             </div>

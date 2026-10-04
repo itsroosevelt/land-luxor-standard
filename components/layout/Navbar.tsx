@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import {
     Menu, X, Send, BarChart2, Disc,
     ChevronDown, ShieldCheck, PieChart,
@@ -25,6 +27,8 @@ const FUNDRAISING_RAISED = 2500;
 const FUNDRAISING_GOAL = 2500000;
 const FUNDRAISING_PROGRESS = (FUNDRAISING_RAISED / FUNDRAISING_GOAL) * 100;
 
+import { AirdropModal } from '@/components/home/AirdropModal';
+
 export default function Navbar() {
     const t = useTranslations('Navbar');
     const tf = useTranslations('Footer');
@@ -34,6 +38,22 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMega, setActiveMega] = useState<string | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const { disconnect, connected, publicKey, wallet } = useWallet();
+    const { setVisible } = useWalletModal();
+
+    const handleConnectPhantom = async () => {
+        try {
+            if (connected) {
+                await disconnect();
+            } else {
+                // Abrimos el modal oficial de Solana que maneja errores y descargas automáticamente
+                setVisible(true);
+            }
+        } catch (err) {
+            console.error("Failed to connect:", err);
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -261,6 +281,7 @@ export default function Navbar() {
 
     return (
         <>
+            <AirdropModal />
             <nav
                 onMouseLeave={handleMouseLeave}
                 className={`fixed top-0 left-0 right-0 w-full z-[65] transition-all duration-500 ${isScrolled || mobileMenuOpen
@@ -379,8 +400,13 @@ export default function Navbar() {
                                         </div>
                                     </Link>
 
-
-
+                                    <button
+                                        onClick={handleConnectPhantom}
+                                        className="flex items-center gap-2 bg-[#AB9FF2] border border-transparent rounded-full h-9 px-4 hover:bg-[#9f93e6] transition-all text-white text-xs font-sans font-medium shadow-md shadow-[#AB9FF2]/20"
+                                    >
+                                        <Wallet size={14} />
+                                        {connected ? (publicKey ? `${publicKey.toBase58().slice(0, 4)}...${publicKey.toBase58().slice(-4)}` : 'CONNECTED') : 'CONNECT PHANTOM'}
+                                    </button>
 
                                 </div>
                             </div>
@@ -658,6 +684,16 @@ export default function Navbar() {
                                         </motion.button>
                                     </Link>
 
+                                    <motion.button
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: 0.3 }}
+                                        onClick={handleConnectPhantom}
+                                        className="w-full bg-[#AB9FF2] border border-transparent text-white rounded-full h-16 flex items-center justify-center gap-2 font-bold text-lg active:scale-95 transition-all shadow-2xl shadow-[#AB9FF2]/30"
+                                    >
+                                        <Wallet size={20} />
+                                        {connected ? (publicKey ? `${publicKey.toBase58().slice(0, 4)}...${publicKey.toBase58().slice(-4)}` : 'CONNECTED') : 'CONNECT PHANTOM'}
+                                    </motion.button>
 
                                 </div>
 
