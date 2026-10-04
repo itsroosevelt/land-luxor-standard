@@ -109,15 +109,15 @@ export function AirdropModal() {
                             <X size={20} />
                         </button>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
-                            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-6 md:gap-8 items-center relative z-10">
+                            <div className="flex flex-col items-center md:items-start text-center md:text-left w-full">
                                 {/* Gift Icon azul sin contenedor */}
-                                <div className="text-blue-500 mb-6">
+                                <div className="text-blue-500 mb-4 md:mb-6">
                                     <Gift size={40} />
                                 </div>
                                 
-                                <h2 className="text-3xl font-normal text-white mb-3">¡Reclama tus 150 $LXR!</h2>
-                                <p className="text-white/60 text-base mb-8 leading-relaxed font-light">
+                                <h2 className="text-2xl sm:text-3xl font-normal text-white mb-3">¡Reclama tus 150 $LXR!</h2>
+                                <p className="text-white/60 text-sm sm:text-base mb-6 md:mb-8 leading-relaxed font-light">
                                     Gracias por conectar tu billetera. Tienes un regalo de bienvenida listo para ti. Confirma la transacción para recibirlos.
                                 </p>
 
@@ -129,7 +129,7 @@ export function AirdropModal() {
                                     <button 
                                         onClick={handleClaim}
                                         disabled={loading}
-                                        className="w-full h-14 bg-transparent border border-white hover:border-blue-500 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-full text-lg font-normal transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] flex items-center justify-center"
+                                        className="w-full h-12 md:h-14 bg-transparent border border-white hover:border-blue-500 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-full text-base sm:text-lg font-normal transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] flex items-center justify-center"
                                     >
                                         {loading ? 'Procesando firma...' : 'Reclamar 150 $LXR'}
                                     </button>
@@ -140,9 +140,9 @@ export function AirdropModal() {
                                 )}
                             </div>
 
-                            <div className="hidden md:flex justify-center items-center">
+                            <div className="flex justify-center items-center w-full mb-2 md:mb-0">
                                 <motion.div 
-                                    className="w-full max-w-[280px] rounded-full overflow-hidden drop-shadow-[0_0_30px_rgba(171,159,242,0.3)] aspect-square"
+                                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-full md:max-w-[280px] rounded-full overflow-hidden drop-shadow-[0_0_30px_rgba(171,159,242,0.3)] aspect-square"
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                                 >

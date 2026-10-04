@@ -135,32 +135,32 @@ export const Hero = ({ eyebrow, title, subtitle, ctaText, ctaLink }: HeroProps) 
                     <div className="group flex flex-col items-center justify-center text-white">
 
                             {isMounted ? (
-                                <div className="flex items-center gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
-                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
-                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Days</span>
+                                <div className="flex items-center gap-1.5 sm:gap-3 lg:gap-4 group-hover:drop-shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all">
+                                    <div className="flex flex-col items-center min-w-[40px] md:min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-4xl md:text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.days}</span>
+                                        <span className="text-[8px] md:text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Days</span>
                                     </div>
-                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
-                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
-                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Hours</span>
+                                    <div className="text-2xl md:text-3xl lg:text-5xl mb-4 md:mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[40px] md:min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-4xl md:text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.hours}</span>
+                                        <span className="text-[8px] md:text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Hours</span>
                                     </div>
-                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
-                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
-                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Mins</span>
+                                    <div className="text-2xl md:text-3xl lg:text-5xl mb-4 md:mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[40px] md:min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-4xl md:text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.minutes}</span>
+                                        <span className="text-[8px] md:text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Mins</span>
                                     </div>
-                                    <div className="text-3xl lg:text-5xl mb-6 font-light text-white/30 animate-pulse">:</div>
-                                    <div className="flex flex-col items-center min-w-[50px] lg:min-w-[60px]">
-                                        <span suppressHydrationWarning className="text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
-                                        <span className="text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Secs</span>
+                                    <div className="text-2xl md:text-3xl lg:text-5xl mb-4 md:mb-6 font-light text-white/30 animate-pulse">:</div>
+                                    <div className="flex flex-col items-center min-w-[40px] md:min-w-[50px] lg:min-w-[60px]">
+                                        <span suppressHydrationWarning className="text-4xl md:text-5xl lg:text-7xl font-medium font-sans tracking-tighter drop-shadow-lg">{timeLeft.seconds}</span>
+                                        <span className="text-[8px] md:text-[10px] lg:text-xs uppercase tracking-widest text-white/50 mt-1 font-semibold">Secs</span>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="flex items-center gap-4 opacity-0">
+                                <div className="flex items-center gap-1.5 sm:gap-3 lg:gap-4 opacity-0">
                                     {/* Placeholder */}
-                                    <div className="flex flex-col items-center min-w-[60px]">
-                                        <span className="text-5xl lg:text-7xl font-bold font-sans tracking-tighter">0</span>
+                                    <div className="flex flex-col items-center min-w-[40px] md:min-w-[50px] lg:min-w-[60px]">
+                                        <span className="text-4xl md:text-5xl lg:text-7xl font-bold font-sans tracking-tighter">0</span>
                                     </div>
                                 </div>
                             )}
