@@ -56,4 +56,6 @@ secrets/
 # Typically wallets/*.json SHOULD BE IGNORED if they are real keys.
 # The task asked to configure .gitignore (exclude node_modules, .next, .env, secrets)
 brain/
-\n# Temp files\nderive.js\ndev.log
+# Temp files
+derive.js
+dev.log
